@@ -1,9 +1,18 @@
-<%= @image.url%>
-<%= @image.caption%>
+<h3><%= @image.caption %></h3>
 <p>
   by <%= @image.user.email %>
-  <%= time_ago_in_words(@image.created_at) %> ago
+  | <%= time_ago_in_words(@image.created_at) %>
 </p>
+image
+<br>
+<br>
+<%= pluralize(@image.score, 'point') %>
+<% if user_signed_in? %>
+  | <%= vote_link(@image, 'up') %>
+  | <%= vote_link(@image, 'down') %>
+<% else %>
+  | Upvote | Downvote
+<% end %>
 
 <h3>Comments</h3>
 
@@ -18,7 +27,16 @@
   <% @comments.each do |comment| %>
     <div class="comment">
       <hr>
-      <%= simple_format(comment.body) %>
+        <p>
+          <%= pluralize(comment.score, 'point') %>
+          by <%= comment.user.email %>
+          <%= time_ago_in_words(comment.created_at) %> ago
+          <% if user_signed_in? %>
+            | <%= vote_link(comment, 'up') %>
+            | <%= vote_link(comment, 'down') %>
+          <% end %>
+        </p>
+        <%= simple_format(comment.body) %>
     </div>
   <% end %>
 </div>

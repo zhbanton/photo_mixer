@@ -31,7 +31,7 @@ class CommentsController < ApplicationController
 
   def get_image_and_comments
     @image = Image.find(params[:image_id])
-    @comments = current_user.comments
+    @comments = Comment.all.order(score: :desc)
   end
 
 end
