@@ -1,0 +1,13 @@
+<h2>Create new Image</h2>
+
+<%= form_for @image do |f| %>
+  <div>
+    <%= f.label :url, 'URL' %>
+    <%= f.text_field :url %>
+  </div>
+  <div>
+    <%= f.label :caption %>
+    <%= f.text_field :caption %>
+  </div>
+  <%= f.submit %>
+<% end %>
