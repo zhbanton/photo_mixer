@@ -1,0 +1,24 @@
+<%= @image.url%>
+<%= @image.caption%>
+<p>
+  by <%= @image.user.email %>
+  <%= time_ago_in_words(@image.created_at) %> ago
+</p>
+
+<h3>Comments</h3>
+
+<% if user_signed_in? %>
+  <%= form_for [@image, @comment] do |f| %>
+    <%= f.text_area :body, placeholder: 'Enter comment...' %>
+    <%= f.submit 'AddComment' %>
+  <% end %>
+<% end %>
+
+<div id="comments">
+  <% @comments.each do |comment| %>
+    <div class="comment">
+      <hr>
+      <%= simple_format(comment.body) %>
+    </div>
+  <% end %>
+</div>

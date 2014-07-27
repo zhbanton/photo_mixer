@@ -1,5 +1,6 @@
 <%@images.each do |image|%>
   <%= image.url%>
   <%= image.caption%>
+  <%= link_to 'comments', image_comments_path(image) %>
   <br>
 <%end%>
