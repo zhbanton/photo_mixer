@@ -7,12 +7,7 @@ image
 <br>
 <br>
 <%= pluralize(@image.score, 'point') %>
-<% if user_signed_in? %>
-  | <%= vote_link(@image, 'up') %>
-  | <%= vote_link(@image, 'down') %>
-<% else %>
-  | Upvote | Downvote
-<% end %>
+<%= render 'shared/byline', votable: @image %>
 
 <h3>Comments</h3>
 
@@ -31,10 +26,7 @@ image
           <%= pluralize(comment.score, 'point') %>
           by <%= comment.user.email %>
           <%= time_ago_in_words(comment.created_at) %> ago
-          <% if user_signed_in? %>
-            | <%= vote_link(comment, 'up') %>
-            | <%= vote_link(comment, 'down') %>
-          <% end %>
+          <%= render 'shared/byline', votable: comment %>
         </p>
         <%= simple_format(comment.body) %>
     </div>

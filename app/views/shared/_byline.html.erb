@@ -1,0 +1,6 @@
+<% if user_signed_in? %>
+  | <%= vote_link(votable, 'up') %>
+  | <%= vote_link(votable, 'down') %>
+<% else %>
+  | Upvote | Downvote
+<% end %>
