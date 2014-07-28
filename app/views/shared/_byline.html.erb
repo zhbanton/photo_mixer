@@ -1,6 +1,8 @@
 <% if user_signed_in? %>
   | <%= vote_link(votable, 'up') %>
   | <%= vote_link(votable, 'down') %>
+  | <%= link_to "❤︎", favorite_images_path(image_id: @image), method: :post %>
+    <%= link_to "☢", favorite_images_path(@image), method: :delete %>
 <% else %>
   | Upvote | Downvote
 <% end %>
