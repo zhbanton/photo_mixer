@@ -4,7 +4,7 @@
   by <%= @image.user.email %>
   | <%= time_ago_in_words(@image.created_at) %>
 </p>
-image
+  <%= image_tag(@image.image_path.url) %>
 <br>
 <br>
 <%= pluralize(@image.score, 'point') %>
