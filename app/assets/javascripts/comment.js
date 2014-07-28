@@ -21,13 +21,13 @@ var sortComments = function() {
   var $comments = $('.comment');
 
   $comments.sort(function(a, b) {
-    var an = a.getAttribute('data-score'),
-        bn = b.getAttribute('data-score');
+    var aScore = a.getAttribute('data-score'),
+        bScore = b.getAttribute('data-score');
 
-    if(an > bn) {
+    if(aScore > bScore) {
       return -1;
     }
-    if(an < bn) {
+    if(aScore < bScore) {
       return 1;
     }
     return 0;
