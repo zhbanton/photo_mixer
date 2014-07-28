@@ -15,5 +15,7 @@ Rails.application.routes.draw do
     resource :favorites, only: [:show]
   end
 
+  resources :favorite_images, only: [:create, :destroy]
+
   root to: 'images#index'
 end

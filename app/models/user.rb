@@ -8,7 +8,7 @@ class User < ActiveRecord::Base
   has_many :comments
   has_many :images
   has_many :favorites, :dependent => :destroy
-  has_many :favorite_images, :through => :favorites, :source => :image
+  has_many :favorite_images, :through => :favorites, :source => :favorited
 
   validates :username, presence: true
   validates :username, uniqueness: true, case_sensitive: false
