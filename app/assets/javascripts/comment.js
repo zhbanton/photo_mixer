@@ -1,5 +1,5 @@
-$(document).ready(function() {
-  $('#new_comment').submit(createComment);
+$(document).on("page:change", function() {
+  $('#new-comment').submit(createComment);
 });
 
 var createComment = function(event) {
@@ -10,7 +10,7 @@ var createComment = function(event) {
     dataType: 'json'
   })
   .done(function(data) {
-    $('#new_comment textarea').val('');
+    $('#new-comment textarea').val('');
     $('#comments').append(HandlebarsTemplates.comments(data));
   })
   .done(sortComments);
