@@ -1,7 +1,8 @@
 source 'https://rubygems.org'
 
 gem 'carrierwave'
-gem "fog"
+gem 'fog'
+gem 'rmagick'
 
 gem 'aws-sdk'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
