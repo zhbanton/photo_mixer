@@ -3,7 +3,7 @@
 <% @images.each do |image| %>
   <div class="image">
     <h3><%= link_to image.caption, image_comments_path(image)%></h3><br>
-    <%= image_tag(image.image_path.url) %>
+    <%= image_tag(image.image_path.url(:thumb)) %>
     <br>
   </div>
 <%end%>
