@@ -1,0 +1,13 @@
+{{#each comments}}
+<div class="comment">
+  <hr>
+  <p>
+    {{score}} points
+    by {{user_email}}
+    {{time_ago}} ago
+    | <a data-method="patch" href={{upvote_link}} rel="nofollow">Upvote</a>
+    | <a data-method="patch" href={{downvote_link}} rel="nofollow">Downvote</a>
+  </p>
+  <p>{{body}}</p>
+</div>
+{{/each}}
