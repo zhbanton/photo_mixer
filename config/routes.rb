@@ -9,5 +9,10 @@ Rails.application.routes.draw do
     resource :vote, only: :update, defaults: { votable_type: 'Comment' }
   end
 
+  resources :users, only: [] do
+    resource :images, only: [:show]
+    resource :comments, only: [:show]
+  end
+
   root to: 'images#index'
 end
