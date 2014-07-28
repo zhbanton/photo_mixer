@@ -1,4 +1,5 @@
-<%= render 'shared/signinup' %>
+<%= render 'shared/nav' %>
+<h1>Gallery</h1>
 <% @images.each do |image| %>
   <div class="image">
     <h3><%= link_to image.caption, image_comments_path(image)%></h3><br>
