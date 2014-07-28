@@ -2,9 +2,15 @@ class CommentsController < ApplicationController
 
   before_action :get_image_and_comments
   before_action :authenticate_user!, only: :create
+  respond_to :html, :json
+
+  def default_serializer_options
+    {root: false}
+  end
 
   def index
     @comment = Comment.new
+    respond_with @comments
   end
 
   def show
@@ -14,13 +20,8 @@ class CommentsController < ApplicationController
     @comment = Comment.new(comment_params)
     @comment.image = @image
     @comment.user = current_user
-    if @comment.save
-      redirect_to image_comments_path(@image), notice: 'comment submitted!'
-    else
-      flash.now[:alert] = @comment.errors.full_messages.join(', ')
-      render :new
-    end
-
+    @comment.save
+    respond_with(@comment)
   end
 
   private
