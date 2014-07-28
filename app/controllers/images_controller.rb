@@ -10,7 +10,7 @@ class ImagesController < ApplicationController
   end
 
   def create
-    @image = current_user.images.new(image_params)
+    @image = current_user.uploaded_images.new(image_params)
     if @image.save
       redirect_to root_path, notice: 'image submitted!'
     else
