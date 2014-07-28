@@ -9,17 +9,29 @@ var createComment = function(event) {
     data: {comment: {body: $(this).children('textarea').val()}},
     dataType: 'json'
   })
-  .done(getComments);
+  .done(function(data) {
+    $('#new_comment textarea').val('');
+    $('#comments').append(HandlebarsTemplates.comments(data));
+  })
+  .done(sortComments);
   event.preventDefault();
 };
 
-var getComments = function(comment) {
-  $.ajax({
-    url: 'http://localhost:3000/images/' + comment.comment.image_id + '/comments',
-    dataType: 'json'
-  })
-  .done(function(data) {
-    console.log(data);
-    $('#comments').html(HandlebarsTemplates.comments(data));
+var sortComments = function() {
+  var $comments = $('.comment');
+
+  $comments.sort(function(a, b) {
+    var an = a.getAttribute('data-score'),
+        bn = b.getAttribute('data-score');
+
+    if(an > bn) {
+      return -1;
+    }
+    if(an < bn) {
+      return 1;
+    }
+    return 0;
   });
+
+  $comments.detach().appendTo('#comments');
 };

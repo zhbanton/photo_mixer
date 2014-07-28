@@ -4,6 +4,10 @@ class CommentsController < ApplicationController
   before_action :authenticate_user!, only: :create
   respond_to :html, :json
 
+  def default_serializer_options
+    {root: false}
+  end
+
   def index
     @comment = Comment.new
     respond_with @comments
