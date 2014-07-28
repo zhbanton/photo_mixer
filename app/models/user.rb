@@ -6,6 +6,9 @@ class User < ActiveRecord::Base
 
   has_many :uploaded_images, foreign_key: 'user_id', class_name: "Image"
   has_many :comments
+  has_many :images
+  has_many :favorites, :dependent => :destroy
+  has_many :favorite_images, :through => :favorites, :source => :image
 
   validates :username, presence: true
   validates :username, uniqueness: true, case_sensitive: false
