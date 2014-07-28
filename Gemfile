@@ -7,6 +7,8 @@ gem 'rmagick', require: false
 gem 'active_model_serializers'
 gem 'handlebars_assets'
 
+gem 'rails_12factor'
+
 gem 'aws-sdk'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.4'
