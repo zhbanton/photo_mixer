@@ -1,23 +1,14 @@
 <h2>Create new Image</h2>
 
-<%= form_for @image do |f| %>
-  <div>
-    <%= f.label :url, 'URL' %>
-    <%= f.text_field :url %>
-  </div>
+<%= form_for @image, html: {  multipart: true } do |f| %>
   <div>
     <%= f.label :caption %>
     <%= f.text_field :caption %>
   </div>
-
-
     <div>
   Upload an Image:
-  <%= f.file_field :url %>
+  <%= f.file_field :image_path %>
   </div>
-
-
-
   <%= f.submit %>
 <% end %>
 
