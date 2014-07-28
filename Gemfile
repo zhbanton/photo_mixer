@@ -3,6 +3,9 @@ source 'https://rubygems.org'
 gem 'carrierwave'
 gem "fog"
 
+gem 'active_model_serializers'
+gem 'handlebars_assets'
+
 gem 'aws-sdk'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.4'
