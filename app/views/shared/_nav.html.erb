@@ -1,0 +1,11 @@
+<%= link_to'PHOTO-MIXER', images_path %>
+<% if user_signed_in? %>
+  Logged in as <strong><%= current_user.username %></strong>.
+  <%= link_to 'Edit profile', edit_user_registration_path %> |
+  <%= link_to 'Sign Out', destroy_user_session_path, method: :delete %> |
+  <%= link_to 'My Images', user_images_path(current_user) %> |
+  <%= link_to 'Upload Image', new_image_path %>
+<% else %>
+  <%= link_to 'Sign In or Sign Up', new_user_session_path %>
+<% end %>
+
