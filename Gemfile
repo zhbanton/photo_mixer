@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 gem 'carrierwave'
 gem 'fog'
-gem 'rmagick'
+gem 'rmagick', require: false
 
 gem 'active_model_serializers'
 gem 'handlebars_assets'

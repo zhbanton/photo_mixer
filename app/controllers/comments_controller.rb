@@ -10,18 +10,14 @@ class CommentsController < ApplicationController
 
   def index
     @comment = Comment.new
-    respond_with @comments
-  end
-
-  def show
   end
 
   def create
-    @comment = Comment.new(comment_params)
-    @comment.image = @image
-    @comment.user = current_user
-    @comment.save
-    respond_with(@comment)
+    comment = Comment.new(comment_params)
+    comment.image = @image
+    comment.user = current_user
+    comment.save
+    respond_with(comment)
   end
 
   private
@@ -32,7 +28,7 @@ class CommentsController < ApplicationController
 
   def get_image_and_comments
     @image = Image.find(params[:image_id])
-    @comments = Comment.all.order(score: :desc)
+    @comments = @image.comments.order(score: :desc)
   end
 
 end

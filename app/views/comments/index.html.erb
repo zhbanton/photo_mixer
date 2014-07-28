@@ -13,10 +13,10 @@
 <h3>Comments</h3>
 
 <% if user_signed_in? %>
-  <%= form_for [@image, @comment] do |f| %>
-    <%= f.text_area :body, placeholder: 'Enter comment...' %>
-    <%= f.submit 'AddComment' %>
-  <% end %>
+  <form id="new-comment" action="/images/<%=@image.id%>/comments">
+    <textarea id="comment-body"></textarea>
+    <input type="submit">
+  </form>
 <% end %>
 
 <div id="comments">
