@@ -32,7 +32,8 @@
     <%= f.file_field :avatar %></div>
 
   <div><%= f.submit "Update" %></div>
-  <div><%= image_tag(current_user.avatar.url) %></div>
+  <!-- Display current avatar -->
+  <div><%= image_tag(current_user.avatar.url(:large_avatar)) %></div>
 
 <% end %>
 
