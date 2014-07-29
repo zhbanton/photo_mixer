@@ -1,6 +1,5 @@
 <%= render 'shared/nav' %>
 <h1>My Images</h1>
-
-<%= @images.each do |image| %>
-  <%= image_tag(image.image_path.url) %>
+<% @images.each do |image| %>
+  <%= link_to image_tag(image.image_path.url(:thumb)), image_comments_path(image) %>
 <% end %>
