@@ -1,43 +1,48 @@
 <%= render 'shared/nav' %>
-<h3><%= @image.caption %></h3>
-<p>
-  by <%= @image.user.email %>
-  | <%= time_ago_in_words(@image.created_at) %>
-</p>
-  <%= image_tag(@image.image_path.url) %>
-<br>
-<br>
-<%= pluralize(@image.score, 'point') %>
-<%= render 'shared/byline', votable: @image %>
-<% if user_signed_in? %>
-  <% if @favorite.present? %>
-    <button  data-image= <%= @image.id %> data-favorite= <%= @favorite.id %> id="favorite-button" class="favorite">Favorite</button>
-  <% else %>
-    <button data-image= <%= @image.id %> id="favorite-button">Favorite</button>
-  <% end %>
-<% end %>
+<div class='row'>
+  <div class='small-11 small-centered columns'>
+    <h3 class= 'header-1'> <%= @image.caption %> </h3>
+    <p class= 'form-text'>
+      by <%= @image.user.username %>
+      | Uploaded: <%= time_ago_in_words(@image.created_at) %> ago
+    </p>
+      <%= image_tag(@image.image_path.url) %>
+    <br>
+    <br>
+    <%= pluralize(@image.score, 'point') %>
+    <%= render 'shared/byline', votable: @image %>
+    <% if user_signed_in? %>
+      <% if @favorite.present? %>
+        <button  data-image= <%= @image.id %> data-favorite= <%= @favorite.id %> id="favorite-button" class="favorite">Favorite</button>
+      <% else %>
+        <button data-image= <%= @image.id %> id="favorite-button">Favorite</button>
+      <% end %>
+    <% end %>
 
 
-<h3>Comments</h3>
+    <h3 class='header-1'>Comments</h3>
 
-<% if user_signed_in? %>
-  <form id="new-comment" action="/images/<%=@image.id%>/comments">
-    <textarea id="comment-body"></textarea>
-    <input type="submit">
-  </form>
-<% end %>
+    <% if user_signed_in? %>
+      <form id="new-comment" action="/images/<%=@image.id%>/comments">
+        <textarea id="comment-body"></textarea>
+        <input type="submit">
+      </form>
+    <% end %>
 
-<div id="comments">
-  <% @comments.each do |comment| %>
-    <div data-score=<%= comment.score %> class="comment">
-      <hr>
-        <p>
-          <%= pluralize(comment.score, 'point') %>
-          by <%= comment.user.email %>
-          <%= time_ago_in_words(comment.created_at) %> ago
-          <%= render 'shared/byline', votable: comment %>
-        </p>
-        <%= simple_format(comment.body) %>
+    <div id="comments">
+      <% @comments.each do |comment| %>
+        <div data-score=<%= comment.score %> class="comment">
+          <hr>
+            <%= simple_format(comment.body, class: 'comment') %>
+            <p class='form-text'>
+            <%= pluralize(comment.score, 'point') %>
+            by <%= comment.user.username %>
+            <%= time_ago_in_words(comment.created_at) %> ago
+            <%= render 'shared/byline', votable: comment %>
+            </p>
+
+        </div>
+      <% end %>
     </div>
-  <% end %>
+  </div>
 </div>

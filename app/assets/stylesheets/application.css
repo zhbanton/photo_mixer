@@ -48,7 +48,7 @@ input[type=file]{
   font-family: 'Montserrat', sans-serif;
 }
 
-.close{
+.close, .comment{
   color: white;
 }
 
