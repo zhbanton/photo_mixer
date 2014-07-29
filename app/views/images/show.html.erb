@@ -2,4 +2,6 @@
 <h1>My Images</h1>
 <% @images.each do |image| %>
   <%= link_to image_tag(image.image_path.url(:thumb)), image_comments_path(image) %>
+  <br>
+  <%= link_to 'Delete', image, method: :delete, data: {confirm: 'Permenantly delete image?'} %>
 <% end %>
