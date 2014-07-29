@@ -9,7 +9,7 @@ class User < ActiveRecord::Base
   has_many :favorites
   has_many :interests, dependent: :destroy
   has_many :categories, through: :interests
-  accepts_nested_attributes_for :interests, allow_destroy: true
+  accepts_nested_attributes_for :interests, reject_if: proc { |attributes| attributes['category_id'].blank? }, allow_destroy: true
   accepts_nested_attributes_for :categories
 
   validates :username, presence: true
