@@ -1,7 +1,3 @@
-$(document).on("page:change", function() {
-  $('#new-comment').submit(createComment);
-});
-
 var createComment = function(event) {
   $.ajax({
     url: 'http://localhost:3000' + $(this).attr('action'),

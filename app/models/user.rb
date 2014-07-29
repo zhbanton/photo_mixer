@@ -29,4 +29,8 @@ class User < ActiveRecord::Base
     favorites.map { |favorite| favorite.image }
   end
 
+  def get_favorite(image)
+    favorites.select { |favorite| favorite.image_id == image.id }.first
+  end
+
 end
