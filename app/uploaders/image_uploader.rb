@@ -35,10 +35,47 @@ class ImageUploader < CarrierWave::Uploader::Base
   #   # do something
   # end
 
+
   # Create different versions of your uploaded files:
   version :thumb do
     process :resize_to_fill => [180, 180]
   end
+
+  # version :clockwise do |img|
+  #   process img.rotate(90)
+  # end
+
+  # version :counter_clockwise do
+  #   process :rotate_ccw
+  # end
+
+  # version :invert do
+  #   process :rotate_invert
+  # end
+
+  # def rotate_cw
+  #   manipulate! do |img|
+  #     img.rotate 90>
+  #     #img = yield(img) if block_given?
+  #     #img
+  #   #end
+  # end
+
+  # def rotate_ccw
+  #   manipulate! do |img|
+  #     img.rotate -90>
+  #     #img = yield(img) if block_given?
+  #     #img
+  #   #end
+  # end
+
+  # def rotate_invert
+  #   manipulate! do |img|
+  #     img.rotate 180>
+  #     #img = yield(img) if block_given?
+  #     #img
+  #   #end
+  # end
 
   # Override the filename of the uploaded files:
   # Avoid using model.id or version_name here, see uploader/store.rb for details.
