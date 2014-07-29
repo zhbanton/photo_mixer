@@ -48,3 +48,25 @@ input[type=file]{
   font-family: 'Montserrat', sans-serif;
 }
 
+.close{
+  color: white;
+}
+
+.flash_notice{
+  color: white;
+  background: green;
+  font-family: 'Montserrat', sans-serif;
+ @include alert(
+
+  );
+}
+
+.flash_alert{
+  color: white;
+  background: red;
+  font-family: 'Montserrat', sans-serif;
+  @include alert(
+
+  );
+}
+
