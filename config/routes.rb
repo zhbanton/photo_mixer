@@ -14,5 +14,7 @@ Rails.application.routes.draw do
     resource :comments, only: [:show]
   end
 
+  resources :favorites, only: [:create, :destroy]
+
   root to: 'images#index'
 end

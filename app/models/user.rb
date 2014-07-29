@@ -6,6 +6,7 @@ class User < ActiveRecord::Base
 
   has_many :uploaded_images, foreign_key: 'user_id', class_name: "Image"
   has_many :comments
+  has_many :favorites
 
   validates :username, presence: true
   validates :username, uniqueness: true, case_sensitive: false
@@ -23,5 +24,13 @@ class User < ActiveRecord::Base
         where(conditions).first
       end
     end
+
+  def favorite_images
+    favorites.map { |favorite| favorite.image }
+  end
+
+  def get_favorite(image)
+    favorites.select { |favorite| favorite.image_id == image.id }.first
+  end
 
 end

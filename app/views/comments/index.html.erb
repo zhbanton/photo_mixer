@@ -9,6 +9,14 @@
 <br>
 <%= pluralize(@image.score, 'point') %>
 <%= render 'shared/byline', votable: @image %>
+<% if user_signed_in? %>
+  <% if @favorite.present? %>
+    <button  data-image= <%= @image.id %> data-favorite= <%= @favorite.id %> id="favorite-button" class="favorite">Favorite</button>
+  <% else %>
+    <button data-image= <%= @image.id %> id="favorite-button">Favorite</button>
+  <% end %>
+<% end %>
+
 
 <h3>Comments</h3>
 

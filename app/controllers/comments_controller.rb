@@ -10,6 +10,7 @@ class CommentsController < ApplicationController
 
   def index
     @comment = Comment.new
+    @favorite = current_user.get_favorite(@image) if user_signed_in?
   end
 
   def create
