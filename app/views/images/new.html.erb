@@ -1,19 +1,13 @@
 <%= render 'shared/nav' %>
 <div class='row'>
   <div class='small-11 small-centered columns'>
-    <h1 class='header-1'>Create new Image</h1>
+    <h1 class='header-1'>Upload a New Image</h1>
 
     <%= form_for @image, html: {  multipart: true, class: 'upload-form' } do |f| %>
-      <div>
         <%= f.file_field :image_path %>
-      </div>
-      <div>
-        <%= f.label :caption %>
+        <%= f.label :caption, 'Enter a title or caption for your image:', class: 'form-text' %>
         <%= f.text_field :caption %>
-      </div>
-      <div>
-        <%= f.submit %>
-      </div>
+        <%= f.submit class: 'button [radius round]' %>
     <% end %>
   </div>
 </div>

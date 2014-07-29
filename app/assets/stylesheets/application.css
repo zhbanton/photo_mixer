@@ -19,7 +19,7 @@
 .view-images li{
   height: 180px;
   width: 180px;
-  padding: 0;
+  padding: 10px;
 }
 
 body{
@@ -38,3 +38,13 @@ body{
   color: #fff;
   font-family: 'Montserrat', sans-serif;
 }
+
+.form-text{
+  color: #fff;
+  font-family: 'Montserrat', sans-serif;
+}
+
+input[type=file]{
+  font-family: 'Montserrat', sans-serif;
+}
+

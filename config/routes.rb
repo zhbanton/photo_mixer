@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users, controllers: {registrations: 'registrations'}
 
-  resources :images, only: [:index, :new, :create] do
+  resources :images, only: [:index, :new, :create, :edit, :destroy] do
     resource :vote, only: :update, defaults: { votable_type: 'Image' }
     resources :comments, only: [:index, :create]
   end
