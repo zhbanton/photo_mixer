@@ -1,24 +1,25 @@
 var favorite = function(event) {
-  if ($(this).hasClass('favorite')) {
+  if ($('#favorite-button').hasClass('favorite')) {
     $.ajax({
-      url: '/users/' + $(this).data('user') + '/favorites/' + $(this).data('favorite'),
+      url: '/favorites/' + $(this).data('favorite'),
       type: 'DELETE'
     })
-    .done(function(){
-      $(this).removeClass('favorite');
+    .done(function(data){
+      $('#favorite-button').removeClass('favorite');
     });
   }
   else {
     $.ajax({
-      url: '/users/' + $(this).data('user') + '/favorites',
+      url: '/favorites',
       type: 'POST',
-      data: {},
+      data: {favorite: {image_id: $(this).data('image')}},
       dataType: 'json'
     })
     .done(function(data) {
-      $(this).addClass('favorite');
-      $(this).data('favorite', 'data.id');
+      $('#favorite-button').addClass('favorite');
+      $('#favorite-button').data('favorite', data.id);
     });
+    event.preventDefault();
   }
 };
 //if the favorite with the same user_id and image_id exists, destroy it otherwise create it

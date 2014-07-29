@@ -12,8 +12,9 @@ Rails.application.routes.draw do
   resources :users, only: [] do
     resource :images, only: [:show]
     resource :comments, only: [:show]
-    resources :favorites, only: [:create, :destroy]
   end
+
+  resources :favorites, only: [:create, :destroy]
 
   root to: 'images#index'
 end
