@@ -11,10 +11,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140728224313) do
+ActiveRecord::Schema.define(version: 20140729163221) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "categories", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "comments", force: true do |t|
     t.text     "body"
@@ -49,6 +55,16 @@ ActiveRecord::Schema.define(version: 20140728224313) do
   end
 
   add_index "images", ["user_id"], name: "index_images_on_user_id", using: :btree
+
+  create_table "interests", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "category_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "interests", ["category_id"], name: "index_interests_on_category_id", using: :btree
+  add_index "interests", ["user_id"], name: "index_interests_on_user_id", using: :btree
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false

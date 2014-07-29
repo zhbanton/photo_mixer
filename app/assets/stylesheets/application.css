@@ -12,4 +12,29 @@
  *
  *= require_tree .
  *= require_self
+ *= require foundation_and_overrides
+
  */
+
+.view-images li{
+  height: 180px;
+  width: 180px;
+  padding: 0;
+}
+
+body{
+  background: #202124;
+}
+
+.photo-mixer{
+  font-family: 'Montserrat Subrayada', sans-serif;
+}
+
+.upload-form{
+  color: #fff;
+}
+
+.header-1{
+  color: #fff;
+  font-family: 'Montserrat', sans-serif;
+}

@@ -86,6 +86,9 @@ GEM
       fog-core
       fog-json
     formatador (0.2.4)
+    foundation-rails (5.3.0.1)
+      railties (>= 3.1.0)
+      sass (>= 3.2.0)
     handlebars_assets (0.17.1)
       execjs (>= 1.2.9)
       multi_json
@@ -191,6 +194,7 @@ DEPENDENCIES
   devise
   dotenv-rails
   fog
+  foundation-rails
   handlebars_assets
   jbuilder (~> 2.0)
   jquery-rails

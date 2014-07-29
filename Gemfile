@@ -24,6 +24,8 @@ gem "cocoon"
 gem 'active_model_serializers'
 gem 'handlebars_assets'
 
+gem 'foundation-rails'
+
 group :development, :test do
   gem 'dotenv-rails'
 end
