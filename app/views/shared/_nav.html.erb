@@ -1,11 +1,45 @@
-<%= link_to'PHOTO-MIXER', images_path %>
-<% if user_signed_in? %>
-  Logged in as <strong><%= current_user.username %></strong>.
-  <%= link_to 'Edit profile', edit_user_registration_path %> |
-  <%= link_to 'Sign Out', destroy_user_session_path, method: :delete %> |
-  <%= link_to 'My Images', user_images_path(current_user) %> |
-  <%= link_to 'Upload Image', new_image_path %>
-<% else %>
-  <%= link_to 'Sign In or Sign Up', new_user_session_path %>
-<% end %>
+<nav class="top-bar" data-topbar>
+  <ul class="title-area">
+    <li class="name">
+      <h1 class="photo-mixer"><%= link_to'Photo-Mixer', images_path %></h1>
+    </li>
+    <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
+  </ul>
+
+  <% if user_signed_in? %>
+    <section class="top-bar-section">
+      <!-- Right Nav Section -->
+      <ul class="right">
+        <li class="active" id="username"><%= link_to current_user.username %></li>
+        <li class="has-dropdown">
+          <a href="#">Menu</a>
+          <ul class="dropdown">
+            <li><%= link_to 'Edit profile', edit_user_registration_path %></li>
+            <li><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></li>
+            <li><%= link_to 'My Images', user_images_path(current_user) %></li>
+            <li><%= link_to 'Upload Image', new_image_path %></li>
+          </ul>
+        </li>
+      </ul>
+      <!-- Left Nav Section -->
+      <ul class="left">
+        <li></li>
+      </ul>
+    </section>
+
+    <% else %>
+      <section class="top-bar-section">
+        <!-- Right Nav Section -->
+        <ul class="right">
+          <li class="active"><%= link_to 'Sign In or Sign Up', new_user_session_path %></li>
+        </ul>
+        <!-- Left Nav Section -->
+        <ul class="left">
+        </ul>
+      </section>
+  <% end %>
+</nav>
+
+
+
 
