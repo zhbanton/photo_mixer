@@ -4,7 +4,7 @@ class ImagesController < ApplicationController
   def index
     @images = Image.all
   end
-
+  
   def show
     @images = Image.where(user_id: params[:user_id])
   end

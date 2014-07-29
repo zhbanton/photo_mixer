@@ -21,6 +21,17 @@
   Choose an Avatar:
   <%= f.file_field :avatar %></div>
 
+  <fieldset id="user-categories">
+    <ul>
+      <%= f.fields_for :interests do |interest| %>
+        <%= render 'interest_fields', f: interest %>
+      <% end %>
+    </ul>
+      <div class="add-line controls">
+        <%= link_to_add_association 'add interest', f, :interests, 'data-association-insertion-node' => "#user-categories ul", 'data-association-insertion-method' => "append", :wrap_object => Proc.new { |interest| interest.build_category; interest } %>
+    </div>
+  </fieldset>
+
   <div><%= f.submit "Sign up" %></div>
 
 <% end %>

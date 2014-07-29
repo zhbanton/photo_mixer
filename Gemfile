@@ -19,6 +19,7 @@ gem 'carrierwave'
 gem 'fog'
 gem 'rmagick', require: false
 gem 'aws-sdk'
+gem "cocoon"
 
 gem 'active_model_serializers'
 gem 'handlebars_assets'
