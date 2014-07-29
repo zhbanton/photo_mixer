@@ -40,6 +40,7 @@ GEM
       activesupport (>= 3.2.0)
       json (>= 1.7)
       mime-types (>= 1.16)
+    cocoon (1.2.6)
     coffee-rails (4.0.1)
       coffee-script (>= 2.2.0)
       railties (>= 4.0.0, < 5.0)
@@ -185,6 +186,7 @@ DEPENDENCIES
   active_model_serializers
   aws-sdk
   carrierwave
+  cocoon
   coffee-rails (~> 4.0.0)
   devise
   dotenv-rails
