@@ -11,13 +11,12 @@
       <!-- Right Nav Section -->
       <ul class="right">
         <li> <%= image_tag(current_user.avatar.url(:small_avatar)) %> </li>
-        <li class="active" id="username"><%= link_to current_user.username %></li>
+        <li class="active" id="username"><%= link_to current_user.username, profile_path(current_user.id) %></li>
         <li class="has-dropdown">
           <a href="#">Menu</a>
           <ul class="dropdown">
-            <li><%= link_to 'Edit profile', edit_user_registration_path %></li>
+            <li><%= link_to 'Edit Account', edit_user_registration_path %></li>
             <li><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></li>
-            <li><%= link_to 'My Images', user_images_path(current_user) %></li>
             <li><%= link_to 'Upload Image', new_image_path %></li>
           </ul>
         </li>
