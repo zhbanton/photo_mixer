@@ -1,0 +1,14 @@
+<div id="comments">
+  <% @comments.each do |comment| %>
+    <div data-score=<%= comment.score %> class="comment">
+      <hr>
+        <%= simple_format(comment.body, class: 'comment') %>
+        <p class='form-text'>
+        <%= pluralize(comment.score, 'point') %>
+        by <%= comment.user.username %>
+        <%= time_ago_in_words(comment.created_at) %> ago
+        <%= render 'shared/byline', votable: comment %>
+        </p>
+    </div>
+  <% end %>
+</div>

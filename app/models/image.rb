@@ -1,6 +1,6 @@
 class Image < ActiveRecord::Base
   mount_uploader :image_path, ImageUploader
-  acts_as_taggable
+  acts_as_ordered_taggable
 
   validates :image_path, presence: true
   validates :user_id, presence: true

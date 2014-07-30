@@ -1,0 +1,22 @@
+<%= render 'shared/nav' %>
+<%= image_tag(@user.avatar.url(:large_avatar)) %>
+<ul class="tabs" data-tab>
+  <li class="tab-title active"><a href="#panel2-1">Uploaded Images</a></li>
+  <li class="tab-title"><a href="#panel2-2">Comments</a></li>
+  <li class="tab-title"><a href="#panel2-3">Favorite Images</a></li>
+  <li class="tab-title"><a href="#panel2-4">Most Popular Tags</a></li>
+</ul>
+<div class="tabs-content">
+  <div class="content active" id="panel2-1">
+    <%= render 'shared/image_grid', images: @uploaded_images %>
+  </div>
+  <div class="content" id="panel2-2">
+    <%= render 'shared/comments' %>
+  </div>
+  <div class="content" id="panel2-3">
+    <%= render 'shared/image_grid', images: @favorite_images %>
+  </div>
+  <div class="content" id="panel2-4">
+    <p>Fourth panel content goes here...</p>
+  </div>
+</div>
