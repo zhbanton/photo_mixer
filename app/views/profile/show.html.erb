@@ -8,13 +8,31 @@
 </ul>
 <div class="tabs-content">
   <div class="content active" id="panel2-1">
-    <%= render 'shared/image_grid', images: @uploaded_images %>
+    <div class='row'>
+      <div class='small-11 small-centered columns'>
+        <ul class='view-images small-block-grid-3 medium-block-grid-4 large-block-grid-5'>
+          <% @uploaded_images.each do |image| %>
+            <li> <%= link_to image_tag(image.image_path.url(:thumb)), image_comments_path(image) %>
+            </li>
+          <%end%>
+        </ul>
+      </div>
+    </div>
   </div>
   <div class="content" id="panel2-2">
     <%= render 'shared/comments' %>
   </div>
   <div class="content" id="panel2-3">
-    <%= render 'shared/image_grid', images: @favorite_images %>
+    <div class='row'>
+      <div class='small-11 small-centered columns'>
+        <ul class='view-images small-block-grid-3 medium-block-grid-4 large-block-grid-5'>
+          <% @favorite_images.each do |image| %>
+            <li> <%= link_to image_tag(image.image_path.url(:thumb)), image_comments_path(image) %>
+            </li>
+          <%end%>
+        </ul>
+      </div>
+    </div>
   </div>
   <div class="content" id="panel2-4">
     <p>Fourth panel content goes here...</p>
