@@ -2,7 +2,11 @@ class ImagesController < ApplicationController
 
   before_action :authenticate_user!, only: [:new, :create]
   def index
-    @images = Image.all
+    if params[:tag]
+      @images = Image.tagged_with(params[:tag])
+    else
+      @images = Image.all
+    end
   end
 
   def show
