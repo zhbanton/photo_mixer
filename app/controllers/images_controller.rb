@@ -4,7 +4,7 @@ class ImagesController < ApplicationController
   def index
     @images = Image.all
   end
-  
+
   def show
     @images = Image.where(user_id: params[:user_id])
   end
@@ -37,7 +37,7 @@ class ImagesController < ApplicationController
   private
 
   def image_params
-    params.require(:image).permit(:image_path, :caption)
+    params.require(:image).permit(:image_path, :caption, :tag_list)
   end
 
 end
