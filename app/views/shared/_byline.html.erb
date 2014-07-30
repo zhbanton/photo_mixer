@@ -1,12 +1,6 @@
-
-
 <% if user_signed_in? %>
-  <p class='form-text'>
     | <%= vote_link(votable, 'up') %>
     | <%= vote_link(votable, 'down') %> |
-  </p>
 <% else %>
-  <p class='form-text'>
     | Upvote | Downvote |
-  </p>
 <% end %>

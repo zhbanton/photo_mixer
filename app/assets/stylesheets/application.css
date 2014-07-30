@@ -78,3 +78,27 @@ input[type=file]{
   font-family: 'Montserrat', sans-serif;
 }
 
+#byline{
+  color: #202124;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 12px;
+}
+
+.panel{
+  border-radius: 10px;
+}
+
+.favorite{
+  background: yellow;
+}
+
+#favorite-button{
+  font-size: 25px;
+}
+
+.image-byline{
+  color: #fff;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 15px;
+  white-space: nowrap;
+}
