@@ -21,9 +21,12 @@
       <div class="content active" id="panel1a">
         <ul class="small-block-grid-2 medium-block-grid-3 large-block-grid-4">
           <% @uploaded_images.each do |image| %>
-            <li> <%= link_to image_tag(image.image_path.url(:thumb)), image_comments_path(image) %>
-            </li>
-          <%end%>
+            <% if user_signed_in? && image.user == current_user %>
+              <li> <%= link_to image_tag(image.image_path.url(:thumb)), edit_image_path(image) %></li>
+            <% else %>
+              <li><%= link_to image_tag(image.image_path.url(:thumb)), image_comments_path(image) %></li>
+            <% end %>
+          <% end %>
         </ul>
       </div>
       <div class="content" id="panel2a">
@@ -32,9 +35,12 @@
       <div class="content" id="panel3a">
         <ul class="small-block-grid-2 medium-block-grid-3 large-block-grid-4">
           <% @favorite_images.each do |image| %>
-            <li> <%= link_to image_tag(image.image_path.url(:thumb)), image_comments_path(image) %>
-            </li>
-          <%end%>
+            <% if user_signed_in? && image.user == current_user %>
+              <li> <%= link_to image_tag(image.image_path.url(:thumb)), edit_image_path(image) %></li>
+            <% else %>
+              <li><%= link_to image_tag(image.image_path.url(:thumb)), image_comments_path(image) %></li>
+            <% end %>
+          <% end %>
         </ul>
       </div>
       <div class="content" id="panel4a">

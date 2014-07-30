@@ -52,13 +52,13 @@ input[type=file]{
   color: white;
 }
 
-.flash_notice{
+.flash_notice {
   color: white;
   background: green;
   font-family: 'Montserrat', sans-serif;
 }
 
-.flash_alert{
+.flash_alert {
   color: white;
   background: red;
   font-family: 'Montserrat', sans-serif;
