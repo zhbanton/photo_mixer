@@ -1,4 +1,4 @@
-$(document).on("page:change", function() {
+$(document).ready( function() {
   $('#new-comment').submit(createComment);
   $('#favorite-button').click(favorite);
   $('.close').click(function(event){

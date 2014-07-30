@@ -15,7 +15,6 @@
 //= require foundation
 //= require handlebars.runtime
 //= require cocoon
-//= require turbolinks
 //= require_tree .
 
 $(function(){ $(document).foundation(); });
