@@ -15,6 +15,8 @@ class User < ActiveRecord::Base
 
   validates :username, presence: true
   validates :username, uniqueness: true, case_sensitive: false
+  validates :email, presence: true
+  validates :email, uniqueness: true, case_sensitive: false
   validates :avatar, :file_size => { :maximum => 3.0.megabytes.to_i }
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
