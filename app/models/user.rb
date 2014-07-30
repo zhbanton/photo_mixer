@@ -9,9 +9,9 @@ class User < ActiveRecord::Base
   has_many :comments
   has_many :favorites
   has_many :interests, dependent: :destroy
-  has_many :categories, through: :interests
+  has_many :tags, through: :interests
   accepts_nested_attributes_for :interests, allow_destroy: true
-  accepts_nested_attributes_for :categories
+  accepts_nested_attributes_for :tags
 
   validates :username, presence: true
   validates :username, uniqueness: true, case_sensitive: false

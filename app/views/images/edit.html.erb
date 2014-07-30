@@ -3,24 +3,29 @@
   <div class='small-11 small-centered columns'>
     <%= form_for @image do |f| %>
       <h3 class= 'header-1'> <%= f.text_field :caption %></h3>
-      <p class= 'form-text'>
-        by <%= @image.user.username %>
-        | Uploaded: <%= time_ago_in_words(@image.created_at) %> ago
-      </p>
         <%= image_tag(@image.image_path.url) %>
       <br>
       <br>
-      <%= f.label :tag_list, 'Tags (separated by commas)', class: 'form-text' %>
-      <%= f.text_field :tag_list %>
-      <%= pluralize(@image.score, 'point') %>
-      <%= render 'shared/byline', votable: @image %>
-      <% if user_signed_in? %>
-        <% if @favorite.present? %>
-          <button  data-image= <%= @image.id %> data-favorite= <%= @favorite.id %> id="favorite-button" class="favorite">Favorite</button>
-        <% else %>
-          <button data-image= <%= @image.id %> id="favorite-button">Favorite</button>
+      <p class='form-text'>
+        by <%= @image.user.username %>
+        | uploaded: <%= time_ago_in_words(@image.created_at) %> ago
+        | tags: <%= f.text_field :tag_list %>
+      </p>
+        <p class='image-byline'>
+        <%= pluralize(@image.score, 'point') %>
+        <%= render 'shared/byline', votable: @image %>
+        <% if user_signed_in? %>
+          <% if @favorite.present? %>
+            <p data-image= <%= @image.id %> data-favorite= <%= @favorite.id %> id="favorite-button"   class="favorite button round">
+              ★
+            </p>
+          <% else %>
+            <p data-image= <%= @image.id %> id="favorite-button" class='button round'>
+              ★
+            </p>
+          <% end %>
         <% end %>
-      <% end %>
+      </p>
 
       <%= f.submit class: 'button [radius round]' %>
       <%= link_to 'Delete Image', image_path(@image), method: :delete, class: 'button', data: { confirm: "Are you sure you want to this image?" } %>

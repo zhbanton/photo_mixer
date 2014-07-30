@@ -17,7 +17,7 @@ class ImagesController < ApplicationController
   def create
     @image = current_user.uploaded_images.new(image_params)
     if @image.save
-      redirect_to image_comments_path(@image), notice: 'image submitted!'
+      redirect_to edit_image_path(@image), notice: 'image submitted!'
     else
       flash.now[:alert] = @image.errors.full_messages.join(', ')
       render :new

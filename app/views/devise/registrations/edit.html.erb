@@ -32,16 +32,7 @@
           <div><%= image_tag(current_user.avatar.url(:large_avatar)) %></div><br>
 
         <p class='form-text'>Add or remove interests: </p>
-        <fieldset id="user-categories">
-          <ul>
-            <%= f.fields_for :interests do |interest| %>
-              <%= render 'interest_fields', f: interest %>
-            <% end %>
-          </ul>
-            <div class="add-line controls">
-              <%= link_to_add_association 'add interest', f, :interests, 'data-association-insertion-node' => "#user-categories ul", 'data-association-insertion-method' => "append", :wrap_object => Proc.new { |interest| interest.build_category; interest } %>
-            </div>
-        </fieldset>
+        <%= render 'enter_interests', f: f %>
 
       <p class='header-1'>Please enter your current password to make changes and update your account</p>
       <%= f.password_field :current_password, autocomplete: "off" %>
