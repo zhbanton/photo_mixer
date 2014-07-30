@@ -1,6 +1,6 @@
 var createComment = function(event) {
   $.ajax({
-    url: 'http://localhost:3000' + $(this).attr('action'),
+    url: $(this).attr('action'),
     type: 'POST',
     data: {comment: {body: $(this).children('textarea').val()}},
     dataType: 'json'
