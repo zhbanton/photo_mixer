@@ -5,9 +5,9 @@ class User < ActiveRecord::Base
   # Use Carrierwave to allow User to upload avatar associated with their account
   mount_uploader :avatar, AvatarUploader
 
-  has_many :uploaded_images, foreign_key: 'user_id', class_name: "Image"
-  has_many :comments
-  has_many :favorites
+  has_many :uploaded_images, foreign_key: 'user_id', class_name: "Image", dependent: :destroy
+  has_many :comments, dependent: :destroy
+  has_many :favorites, dependent: :destroy
   has_many :interests, dependent: :destroy
   has_many :tags, through: :interests
   accepts_nested_attributes_for :interests, allow_destroy: true
