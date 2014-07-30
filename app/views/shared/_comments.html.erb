@@ -5,7 +5,7 @@
         <%= simple_format(comment.body, class: 'comment') %>
         <p class='form-text'>
         <%= pluralize(comment.score, 'point') %>
-        by <%= comment.user.username %>
+        by <%= link_to comment.user.username, profile_path(comment.user.id) %>
         <%= time_ago_in_words(comment.created_at) %> ago
         <%= render 'shared/byline', votable: comment %>
         </p>
