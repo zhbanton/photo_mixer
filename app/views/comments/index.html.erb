@@ -9,6 +9,7 @@
       <%= image_tag(@image.image_path.url) %>
     <br>
     <br>
+    <p>Tags: <%= raw @image.tag_list.map { |t| link_to t, tag_path(t) }.join(', ') %></p>
     <%= pluralize(@image.score, 'point') %>
     <%= render 'shared/byline', votable: @image %>
     <% if user_signed_in? %>
