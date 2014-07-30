@@ -4,9 +4,11 @@ class ImagesController < ApplicationController
 
   def index
     if params[:tag]
-      @images = Image.tagged_with(params[:tag])
+       @q = Image.search(params[:q])
+       @images = Image.tagged_with(params[:tag])
     else
-      @images = Image.all
+      @q = Image.search(params[:q])
+      @images = @q.result(distinct: true)
     end
   end
 

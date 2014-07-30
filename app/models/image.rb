@@ -12,3 +12,6 @@ class Image < ActiveRecord::Base
   has_many :favorites
 end
 
+
+# where tag name like input
+# form_tag in nav bar
