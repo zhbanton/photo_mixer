@@ -69,3 +69,12 @@ input[type=file]{
   margin-bottom: 10px;
 }
 
+.comment{
+  font-family: helvetica;
+}
+
+#error_explanation{
+  background: red;
+  font-family: 'Montserrat', sans-serif;
+}
+
