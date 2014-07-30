@@ -1,3 +1,38 @@
-<h3>Edit Image</h3>
+<%= render 'shared/nav' %>
+<div class='row'>
+  <div class='small-11 small-centered columns'>
+    <%= form_for @image do |f| %>
+      <h3 class= 'header-1'> <%= f.text_field :caption %></h3>
+      <p class= 'form-text'>
+        by <%= @image.user.username %>
+        | Uploaded: <%= time_ago_in_words(@image.created_at) %> ago
+      </p>
+        <%= image_tag(@image.image_path.url) %>
+      <br>
+      <br>
+      <%= f.label :tag_list, 'Tags (separated by commas)', class: 'form-text' %>
+      <%= f.text_field :tag_list %>
+      <%= pluralize(@image.score, 'point') %>
+      <%= render 'shared/byline', votable: @image %>
+      <% if user_signed_in? %>
+        <% if @favorite.present? %>
+          <button  data-image= <%= @image.id %> data-favorite= <%= @favorite.id %> id="favorite-button" class="favorite">Favorite</button>
+        <% else %>
+          <button data-image= <%= @image.id %> id="favorite-button">Favorite</button>
+        <% end %>
+      <% end %>
 
-<%= image_tag(@image.image_path.url) %>
+      <%= f.submit class: 'button [radius round]' %>
+    <% end %>
+    <h3 class='header-1'>Comments</h3>
+
+    <% if user_signed_in? %>
+      <form id="new-comment" action="/images/<%=@image.id%>/comments">
+        <textarea id="comment-body"></textarea>
+        <input type="submit">
+      </form>
+    <% end %>
+    <%= render 'shared/comments' %>
+  </div>
+</div>
+

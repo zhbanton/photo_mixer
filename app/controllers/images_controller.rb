@@ -24,9 +24,10 @@ class ImagesController < ApplicationController
   end
 
   def edit
+    @image = Image.find(params[:id])
+    @comments = @image.comments.order(score: :desc)
     @comment = Comment.new
     @favorite = current_user.get_favorite(@image) if user_signed_in?
-    @image = Image.find(params[:id])
   end
 
   def update
