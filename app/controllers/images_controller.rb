@@ -3,12 +3,16 @@ class ImagesController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create]
 
   def index
-    if params[:tag]
-      @images = Image.tagged_with(params[:tag])
-    else
-      @images = Image.all
-    end
+    @q = Image.search(params[:q])
+    @images = @q.result(distinct: true)
   end
+  # def index
+  #   if params[:tag]
+  #     @images = Image.tagged_with(params[:tag])
+  #   else
+  #     @images = Image.all
+  #   end
+  # end
 
   def show
     @images = Image.where(user_id: params[:user_id])
