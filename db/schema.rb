@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140730201354) do
+ActiveRecord::Schema.define(version: 20140730212417) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -39,7 +39,6 @@ ActiveRecord::Schema.define(version: 20140730201354) do
   add_index "favorites", ["user_id"], name: "index_favorites_on_user_id", using: :btree
 
   create_table "images", force: true do |t|
-    t.string   "url"
     t.string   "caption"
     t.integer  "user_id"
     t.datetime "created_at"
