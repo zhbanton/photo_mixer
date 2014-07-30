@@ -28,16 +28,7 @@
       <%= f.file_field :avatar %></div><br />
 
       <p class='form-text'>Add an interest to view photos you find interesting (optional): </p>
-      <fieldset id="user-categories">
-        <ul>
-          <%= f.fields_for :interests do |interest| %>
-            <%= render 'interest_fields', f: interest %>
-          <% end %>
-        </ul>
-          <div class="add-line controls">
-            <%= link_to_add_association 'add interest', f, :interests, 'data-association-insertion-node' => "#user-categories ul", 'data-association-insertion-method' => "append", :wrap_object => Proc.new { |interest| interest.build_category; interest } %>
-        </div>
-      </fieldset>
+      <%= render 'enter_interests', f: f %>
 
       <div><%= f.submit "Sign up", class: 'button [radius round]' %></div>
 
