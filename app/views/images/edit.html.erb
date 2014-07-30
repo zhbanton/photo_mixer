@@ -23,6 +23,7 @@
       <% end %>
 
       <%= f.submit class: 'button [radius round]' %>
+      <%= link_to 'Delete Image', image_path(@image), method: :delete, class: 'button', data: { confirm: "Are you sure you want to this image?" } %>
     <% end %>
     <h3 class='header-1'>Comments</h3>
 
