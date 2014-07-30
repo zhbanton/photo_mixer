@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'tags/:tag', to: 'images#index', as: :tag
   devise_for :users, controllers: {registrations: 'registrations'}
 
   resources :images, only: [:index, :new, :create, :edit, :destroy] do

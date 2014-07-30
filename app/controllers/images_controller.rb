@@ -2,9 +2,13 @@ class ImagesController < ApplicationController
 
   before_action :authenticate_user!, only: [:new, :create]
   def index
-    @images = Image.all
+    if params[:tag]
+      @images = Image.tagged_with(params[:tag])
+    else
+      @images = Image.all
+    end
   end
-  
+
   def show
     @images = Image.where(user_id: params[:user_id])
   end
@@ -37,7 +41,7 @@ class ImagesController < ApplicationController
   private
 
   def image_params
-    params.require(:image).permit(:image_path, :caption)
+    params.require(:image).permit(:image_path, :caption, :tag_list)
   end
 
 end
