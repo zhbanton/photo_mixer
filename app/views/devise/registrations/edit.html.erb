@@ -1,55 +1,56 @@
 <%= render 'shared/nav' %>
-<h1>Edit <%= resource_name.to_s.humanize %></h1>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put, :multipart => true }) do |f| %>
-  <!-- multipart => true as part of carrierwave -->
+<div class='row'>
+  <div class='small-11 small-centered columns'>
+    <h1 class='header-1'>Edit Your Account Information</h1>
 
-  <%= devise_error_messages! %>
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put, :multipart => true }) do |f| %>
+      <!-- multipart => true as part of carrierwave -->
+      <%= devise_error_messages! %>
+      <%= f.label :username, class: 'form-text' %><br />
+      <%= f.text_field :username, autofocus: true %>
 
-  <div><%= f.label :username %><br />
-  <%= f.text_field :username, autofocus: true %></div>
+      <%= f.label :email, class: 'form-text' %><br />
+      <%= f.email_field :email, autofocus: true %>
 
-  <div><%= f.label :email %><br />
-  <%= f.email_field :email, autofocus: true %></div>
+      <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+        <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+      <% end %>
 
-  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
-  <% end %>
+      <%= f.label :password, "New password (leave blank if you don't want to change it)", class: 'form-text' %><br />
+        <%= f.password_field :password, autocomplete: "off" %>
 
-  <div><%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
-    <%= f.password_field :password, autocomplete: "off" %></div>
+      <%= f.label :password_confirmation, "New password confirmation", class: 'form-text' %><br />
+      <%= f.password_field :password_confirmation, autocomplete: "off" %>
 
-  <div><%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off" %></div>
+        <!-- To upload new avatar -->
+        <div class='form-text'>
+        Change your avatar: <br><br>
+        <%= f.file_field :avatar %></div>
 
-  <div><%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-    <%= f.password_field :current_password, autocomplete: "off" %></div>
+        <!-- Display current avatar -->
+        <div><%= image_tag(current_user.avatar.url(:large_avatar)) %></div><br>
 
+        <p class='form-text'>Add or remove interests: </p>
+        <fieldset id="user-categories">
+          <ul>
+            <%= f.fields_for :interests do |interest| %>
+              <%= render 'interest_fields', f: interest %>
+            <% end %>
+          </ul>
+            <div class="add-line controls">
+              <%= link_to_add_association 'add interest', f, :interests, 'data-association-insertion-node' => "#user-categories ul", 'data-association-insertion-method' => "append", :wrap_object => Proc.new { |interest| interest.build_category; interest } %>
+            </div>
+        </fieldset>
 
-    <!-- To upload new avatar -->
-    <div>
-    Choose an Avatar:<br>
-    <%= f.file_field :avatar %></div>
+      <p class='header-1'>Please enter your current password to make changes and update your account</p>
+      <%= f.password_field :current_password, autocomplete: "off" %>
 
-    <fieldset id="user-categories">
-      <ul>
-        <%= f.fields_for :interests do |interest| %>
-          <%= render 'interest_fields', f: interest %>
-        <% end %>
-      </ul>
-        <div class="add-line controls">
-          <%= link_to_add_association 'add interest', f, :interests, 'data-association-insertion-node' => "#user-categories ul", 'data-association-insertion-method' => "append", :wrap_object => Proc.new { |interest| interest.build_category; interest } %>
-        </div>
-    </fieldset>
+      <div><%= f.submit "Update Account", class: 'button [radius round]' %></div>
+    <% end %>
 
-  <div><%= f.submit "Update" %></div>
-  <!-- Display current avatar -->
-  <div><%= image_tag(current_user.avatar.url(:large_avatar)) %></div>
+    <h3 class='header-1'>Cancel my account</h3>
 
-<% end %>
-
-<h3>Cancel my account</h3>
-
-<p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
-
-<%= link_to "Back", :back %>
+    <p class='form-text'>Unhappy? Click this button to say goodbye to Photo-Mixer and all of your stuff. <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class: 'button [radius round]' %></p>
+  </div>
+</div>
