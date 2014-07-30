@@ -6,6 +6,7 @@ class ImagesController < ApplicationController
     @q = Image.search(params[:q])
     @images = @q.result(distinct: true)
   end
+
   # def index
   #   if params[:tag]
   #     @images = Image.tagged_with(params[:tag])
