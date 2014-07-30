@@ -1,0 +1,40 @@
+<%= render 'shared/nav' %>
+<%= image_tag(@user.avatar.url(:large_avatar)) %>
+<ul class="tabs" data-tab>
+  <li class="tab-title active"><a href="#panel2-1">Uploaded Images</a></li>
+  <li class="tab-title"><a href="#panel2-2">Comments</a></li>
+  <li class="tab-title"><a href="#panel2-3">Favorite Images</a></li>
+  <li class="tab-title"><a href="#panel2-4">Most Popular Tags</a></li>
+</ul>
+<div class="tabs-content">
+  <div class="content active" id="panel2-1">
+    <div class='row'>
+      <div class='small-11 small-centered columns'>
+        <ul class='view-images small-block-grid-3 medium-block-grid-4 large-block-grid-5'>
+          <% @uploaded_images.each do |image| %>
+            <li> <%= link_to image_tag(image.image_path.url(:thumb)), image_comments_path(image) %>
+            </li>
+          <%end%>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="content" id="panel2-2">
+    <%= render 'shared/comments' %>
+  </div>
+  <div class="content" id="panel2-3">
+    <div class='row'>
+      <div class='small-11 small-centered columns'>
+        <ul class='view-images small-block-grid-3 medium-block-grid-4 large-block-grid-5'>
+          <% @favorite_images.each do |image| %>
+            <li> <%= link_to image_tag(image.image_path.url(:thumb)), image_comments_path(image) %>
+            </li>
+          <%end%>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="content" id="panel2-4">
+    <p>Fourth panel content goes here...</p>
+  </div>
+</div>

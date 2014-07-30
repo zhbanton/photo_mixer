@@ -11,7 +11,7 @@
       <!-- Right Nav Section -->
       <ul class="right">
         <li> <%= image_tag(current_user.avatar.url(:small_avatar)) %> </li>
-        <li class="active" id="username"><%= link_to current_user.username %></li>
+        <li class="active" id="username"><%= link_to current_user.username, profile_path(current_user.id) %></li>
         <li class="has-dropdown">
           <a href="#">Menu</a>
           <ul class="dropdown">
