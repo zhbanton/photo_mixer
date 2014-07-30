@@ -56,17 +56,11 @@ input[type=file]{
   color: white;
   background: green;
   font-family: 'Montserrat', sans-serif;
- @include alert(
-
-  );
 }
 
 .flash_alert{
   color: white;
   background: red;
   font-family: 'Montserrat', sans-serif;
-  @include alert(
-
-  );
 }
 
