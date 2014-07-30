@@ -1,0 +1,18 @@
+<%= render 'shared/nav' %>
+<div class='row'>
+  <div class='small-11 small-centered columns'>
+    <h1 class='header-1 text-center'>HOME!!!!</h1>
+  </div>
+</div>
+
+<div class='row'>
+  <div class='small-11 small-centered columns'>
+    <ul class='view-images small-block-grid-3 medium-block-grid-4 large-block-grid-5'>
+      <% @images.each do |image| %>
+        <li> <%= link_to image_tag(image.image_path.url(:thumb)), image_comments_path(image) %>
+        </li>
+      <%end%>
+    </ul>
+  </div>
+</div>
+

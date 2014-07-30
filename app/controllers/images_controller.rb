@@ -9,10 +9,6 @@ class ImagesController < ApplicationController
     end
   end
 
-  def show
-    @images = Image.where(user_id: params[:user_id])
-  end
-
   def new
     @image = Image.new
   end
@@ -29,6 +25,12 @@ class ImagesController < ApplicationController
 
   def edit
     @image = Image.find(params[:id])
+    if @image.save
+      redirect_to root_path, notice: 'image submitted!'
+    else
+      flash.now[:alert] = @image.errors.full_messages.join(', ')
+      render :new
+    end
   end
 
   def destroy
