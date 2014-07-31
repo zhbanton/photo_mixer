@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140731152825) do
+ActiveRecord::Schema.define(version: 20140731161810) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -57,12 +57,12 @@ ActiveRecord::Schema.define(version: 20140731152825) do
 
   create_table "interests", force: true do |t|
     t.integer  "user_id"
-    t.integer  "tag_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "category_id"
   end
 
-  add_index "interests", ["tag_id"], name: "index_interests_on_tag_id", using: :btree
+  add_index "interests", ["category_id"], name: "index_interests_on_category_id", using: :btree
   add_index "interests", ["user_id"], name: "index_interests_on_user_id", using: :btree
 
   create_table "tags", force: true do |t|

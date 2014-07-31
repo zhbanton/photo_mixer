@@ -41,4 +41,8 @@ class User < ActiveRecord::Base
     favorites.select { |favorite| favorite.image_id == image.id }.first
   end
 
+  def images_of_interest
+    categories.map { |cat| cat.images }
+  end
+
 end
