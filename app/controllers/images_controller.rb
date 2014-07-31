@@ -17,7 +17,7 @@ class ImagesController < ApplicationController
   def create
     @image = current_user.uploaded_images.new(image_params)
     if @image.save
-      redirect_to edit_image_path(@image), notice: 'image submitted!'
+      redirect_to edit_image_path(@image), notice: 'image submitted'
     else
       flash.now[:alert] = @image.errors.full_messages.join(', ')
       render :new
@@ -34,7 +34,7 @@ class ImagesController < ApplicationController
   def update
     @image = Image.find(params[:id])
     if @image.update(image_params)
-      redirect_to edit_image_path(@image), notice: 'image submitted!'
+      redirect_to edit_image_path(@image), notice: 'image updated'
     else
       flash.now[:alert] = @image.errors.full_messages.join(', ')
       render :new
@@ -44,7 +44,7 @@ class ImagesController < ApplicationController
   def destroy
     @image = Image.find(params[:id])
     @image.destroy
-    redirect_to @image, notice: "Image deleted!"
+    redirect_to @image, notice: "image deleted"
   end
 
   private
