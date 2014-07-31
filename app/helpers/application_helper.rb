@@ -1,4 +1,5 @@
 module ApplicationHelper
+
   def vote_link(votable, direction)
     already_voted = votable.voted_by?(current_user, direction)
     new_direction = already_voted ? 'neutral' : direction
@@ -7,5 +8,8 @@ module ApplicationHelper
 
     already_voted ? content_tag('b', link) : link
   end
+
+  ActsAsTaggableOn.force_lowercase = true
+
 end
 
