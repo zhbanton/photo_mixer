@@ -6,7 +6,7 @@
     <br>
     <br>
     <p class='form-text'>
-      by <%= @image.user.username %>
+      by <%= link_to @image.user.username, profile_path(@image.user.id) %>
       | uploaded: <%= time_ago_in_words(@image.created_at) %> ago
       | tags: <%= raw @image.tag_list.map { |t| link_to t, tag_path(t) }.join(', ') %>
     </p>
