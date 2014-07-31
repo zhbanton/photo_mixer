@@ -1,17 +1,18 @@
 <%= render 'shared/nav' %>
 <div class='row'>
   <div class='small-11 small-centered columns'>
-    <h1 class='header-1 text-center'>HOME!!!!</h1>
+    <h1 class='header-1 text-center'>Public Gallery</h1>
+    <a data-dropdown="drop1" class="button dropdown">Filter By</a><br>
+    <ul id="drop1" data-dropdown-content class="f-dropdown">
+      <li><%= link_to "most recent", filter: "most_recent" %></li>
+      <li><%= link_to "today", filter: "today" %></a></li>
+      <li><%= link_to "this week", filter: "this_week" %></li>
+      <li><%= link_to "all time", filter: "all_time" %></li>
+    </ul>
   </div>
 </div>
 
-<a data-dropdown="drop1" class="button dropdown">Filter By</a><br>
-<ul id="drop1" data-dropdown-content class="f-dropdown">
-  <li><%= link_to "today", filter: "today" %></a></li>
-  <li><%= link_to "this week", filter: "this_week" %></li>
-  <li><%= link_to "all time", filter: "all_time" %></li>
-  <li><%= link_to "most recent", filter: "most_recent" %></li>
-</ul>
+
 
 <div class='row'>
   <div class='small-11 small-centered columns'>
