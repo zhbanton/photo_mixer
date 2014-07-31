@@ -1,11 +1,15 @@
-<div data-score={{score}} class="comment">
-  <hr>
+<div data-score={{score}} class="panel comment">
   <p>
-    {{score}} points
-    by {{user_email}}
-    {{time_ago}} ago
-    | <a data-method="patch" href={{upvote_link}} rel="nofollow">Upvote</a>
-    | <a data-method="patch" href={{downvote_link}} rel="nofollow">Downvote</a>
+    {{{body}}}
   </p>
-  <p>{{{body}}}</p>
+  <p id="byline">
+    <img src={{avatar_url}}>
+    by <a href= {{profile_link}}>{{username}}</a>
+    {{time_ago}} ago
+    | {{score}} points
+    <b>
+      | <a data-method="patch" href={{upvote_link}} rel="nofollow">Upvote</a>
+    </b>
+    | <a data-method="patch" href={{downvote_link}} rel="nofollow">Downvote</a> |
+  </p>
 </div>
