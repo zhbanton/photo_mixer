@@ -18,6 +18,7 @@ class User < ActiveRecord::Base
   validates :email, presence: true
   validates :email, uniqueness: true, case_sensitive: false
   validates :avatar, :file_size => { :maximum => 3.0.megabytes.to_i }
+  validates_length_of :blurb, maximum: 150, message: "Limit yourself to 150 characters, please!"
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,

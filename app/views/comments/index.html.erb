@@ -32,9 +32,10 @@
     <% if user_signed_in? %>
       <form id="new-comment" action="/images/<%=@image.id%>/comments">
         <textarea id="comment-body"></textarea>
-        <input type="submit", class='button [tiny small large]'>
+        <input type="submit" id='button'>
       </form>
     <% end %>
+
     <%= render 'shared/comments' %>
   </div>
 </div>

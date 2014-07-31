@@ -13,10 +13,18 @@
         <div class='th'><%= image_tag(current_user.avatar.url(:large_avatar)) %></div>
       </div>
       <div class='large-4 columns'>
-        <div class='blurb'>@user.blurb</div>
+          <p class='blurb'> <%= @user.blurb %> </p>
       </div>
       <div class='large-4 columns'>
-        <div class='stats'></div>
+        <div class='stats'>
+          <h4 class='gray'>Member Stats</h4>
+          <ul>
+            <li>Joined Photo-Mixer: <%= time_ago_in_words(@user.created_at) %> ago </li>
+            <li>Images uploaded: <%= @uploaded_images.length %></li>
+            <li>Comments made: <%= @comments.length %> </li>
+            <li>Total score: <%= @user.uploaded_images.map(&:score).reduce(:+)%> </li>
+          </ul>
+        </div>
       </div>
     </div>
   </div>
