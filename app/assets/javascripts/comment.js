@@ -30,5 +30,5 @@ var sortComments = function() {
     return 0;
   });
 
-  $comments.detach().appendTo('#comments');
+  $('#comments').empty().append($comments);
 };
