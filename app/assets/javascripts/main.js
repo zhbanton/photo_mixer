@@ -67,8 +67,8 @@ var CanvasApp = {
 
 
     $('#myCanvas').attr({
-      width: imgWidth,
-      height: imgHeight,
+      //width: imgWidth,
+      //height: imgHeight,
       style: 'background: url(' + gon.image_path + ") no-repeat;"
     });
     $('#imageShow').hide();
