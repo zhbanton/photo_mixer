@@ -19,7 +19,6 @@ gem 'fog'
 gem 'rmagick', require: false
 gem 'aws-sdk'
 gem 'cocoon'
-gem 'acts-as-taggable-on'
 
 gem 'active_model_serializers'
 gem 'handlebars_assets'

@@ -4,11 +4,7 @@ class ImagesController < ApplicationController
   before_action :get_image_and_authenticate_current_user, only: [:edit, :update, :destroy]
 
   def index
-    if params[:tag]
-      @images = Image.tagged_with(params[:tag])
-    else
-      @images = Image.all
-    end
+    @images = Image.all
   end
 
   def new

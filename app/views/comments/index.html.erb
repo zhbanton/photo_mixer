@@ -8,7 +8,7 @@
     <p class='form-text'>
       by <%= link_to @image.user.username, profile_path(@image.user.id) %>
       | uploaded: <%= time_ago_in_words(@image.created_at) %> ago
-      | tags: <%= raw @image.tag_list.map { |t| link_to t, tag_path(t) }.join(', ') %>
+      | tags: <%= raw @image.categories.map { |cat| link_to cat.name, category_path(cat) }.join(', ') %>
     </p>
     <p class='image-byline'>
     <%= pluralize(@image.score, 'point') %>
