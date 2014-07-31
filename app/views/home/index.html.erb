@@ -5,6 +5,14 @@
   </div>
 </div>
 
+<a data-dropdown="drop1" class="button dropdown">Filter By</a><br>
+<ul id="drop1" data-dropdown-content class="f-dropdown">
+  <li><%= link_to "today", filter: "today" %></a></li>
+  <li><%= link_to "this week", filter: "this_week" %></li>
+  <li><%= link_to "all time", filter: "all_time" %></li>
+  <li><%= link_to "most recent", filter: "most_recent" %></li>
+</ul>
+
 <div class='row'>
   <div class='small-11 small-centered columns'>
     <ul class='view-images small-block-grid-3 medium-block-grid-4 large-block-grid-5'>

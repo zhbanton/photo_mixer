@@ -10,5 +10,20 @@ class Image < ActiveRecord::Base
   belongs_to :user
   has_many :comments, dependent: :destroy
   has_many :favorites, dependent: :destroy
+
+  def self.filterize(filter)
+    case filter
+    when 'today'
+      Image.where('created_at > ?', 24.hours.ago).order(score: :desc)
+    when 'this_week'
+      Image.where('created_at > ?', 1.week.ago).order(score: :desc)
+    when 'all_time'
+      Image.all.order(score: :desc)
+    when 'most_recent'
+      Image.all.order(created_at: :desc)
+    end
+  end
+
 end
+
 
