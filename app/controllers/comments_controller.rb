@@ -29,7 +29,7 @@ class CommentsController < ApplicationController
 
   def get_image_and_comments
     @image = Image.find(params[:image_id])
-    @comments = @image.comments.order(score: :desc)
+    @comments = @image.comments.sort_by { |comment| [comment.score, comment.created_at] }.reverse
   end
 
 end
