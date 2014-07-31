@@ -7,6 +7,7 @@ var createComment = function(event) {
   })
   .done(function(data) {
     $('#new-comment textarea').val('');
+    data.body = data.body.replace(/\n/g, '<br/>');
     $('#comments').append(HandlebarsTemplates.comments(data));
   })
   .done(sortComments);
