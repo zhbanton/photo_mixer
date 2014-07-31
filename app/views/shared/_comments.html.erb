@@ -1,6 +1,6 @@
 <div id="comments">
   <% @comments.each do |comment| %>
-    <div data-score=<%= comment.score %> class="panel comment">
+    <div data-score=<%= comment.score %> data-created-at=<%= comment.created_at.to_i %> class="panel comment">
       <%= simple_format(comment.body) %>
       <p id='byline'>
         <%= image_tag(current_user.avatar.url(:small_avatar)) %>

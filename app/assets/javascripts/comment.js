@@ -19,15 +19,14 @@ var sortComments = function() {
 
   $comments.sort(function(a, b) {
     var aScore = a.getAttribute('data-score'),
-        bScore = b.getAttribute('data-score');
+        bScore = b.getAttribute('data-score'),
+        aCreatedAt = a.getAttribute('data-created-at'),
+        bCreatedAt = b.getAttribute('data-created-at');
 
-    if(aScore > bScore) {
-      return -1;
+    if(aScore === bScore) {
+      return bCreatedAt - aCreatedAt;
     }
-    if(aScore < bScore) {
-      return 1;
-    }
-    return 0;
+    return bScore - aScore;
   });
 
   $('#comments').empty().append($comments);
