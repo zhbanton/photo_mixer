@@ -10,6 +10,9 @@ $(document).ready( function() {
   event.preventDefault();
 });
 
+// $canvas.offset().top
+// $canvas.offset().left
+
 var CanvasApp = {
   init : function(){
     this.clickX = [];
@@ -18,28 +21,31 @@ var CanvasApp = {
     this.paint = false;
 
     this.canvas = document.getElementById('myCanvas');
-    //this.$inputText = $('#image-url');
     this.$submitBtn = $('#submitBtn');
 
     var that = this;
     this.canvas.onmousedown = function(event) {
-      var mouseX = event.pageX - this.offsetLeft;
-      var mouseY = event.pageY - this.offsetTop;
+     var mouseX = event.x - this.offsetLeft;
+     var mouseY = event.y - this.offsetTop;
+     //var mouseX = this.offsetLeft;
+     //var mouseY = this.offsetTop;
 
       that.paint = true;
-      that.addClick(event.pageX - this.offsetLeft, event.pageY - this.offsetTop);
+      that.addClick(mouseX, mouseY);
       that.redraw();
     };
 
     this.canvas.onmousemove = function(event){
       if (that.paint) {
-        that.addClick(event.pageX - this.offsetLeft, event.pageY - this.offsetTop, true);
+        that.addClick(event.x - this.offsetLeft, event.y - this.offsetTop, true);
+        //that.addClick(this.offsetLeft, this.offsetTop, true);
         that.redraw();
       }
     };
 
     this.canvas.onmouseup = function(){
       that.paint = false;
+
     };
 
     this.canvas.onmouseleave = function() {
@@ -54,22 +60,21 @@ var CanvasApp = {
 
   loadImage : function(){
     var context = this.canvas.getContext('2d');
-    var imgWidth = $($('img')[1]).width();
-    var imgHeight = $($('img')[1]).height();
+    var imgWidth = $('#imageShow').width();
+    var imgHeight = $('#imageShow').height();
+    console.log(imgWidth);
 
-    //Hides image, but then when you try to draw, the canvas image disappears?
-    //$('#imageShow').hide();
+
 
     $('#myCanvas').attr({
       width: imgWidth,
       height: imgHeight,
-      style: 'background: url(' + gon.image_path + ")"
+      style: 'background: url(' + gon.image_path + ") no-repeat;"
     });
+    $('#imageShow').hide();
 
-    // imageObj.onload = function() {
-    //   var bestHeight = (578 * imageObj.height) / imageObj.width;
-    //   context.drawImage(imageObj, 0, 0, 578, bestHeight);
-    // };
+    //context.drawImage($('#imageShow'),0,0,imgWidth,imgHeight);
+    //.drawImage($('#imageShow'), 0, 0)
   },
 
   addClick : function(x, y, dragging){
