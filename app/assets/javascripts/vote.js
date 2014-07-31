@@ -7,6 +7,7 @@ var vote = function(event){
   })
   .done(function(data) {
     $('#upvote').data('direction', data.direction);
+    $('#upvote').removeClass().addClass(data.direction);
   });
   event.preventDefault();
 
@@ -23,7 +24,7 @@ var updateCommentVote = function(event){
 };
 
 var flipVote = function(direction) {
- if (direction === "neutral") {
+ if (direction === "neutral" || direction === "down") {
   return "up";
  }
  else if (direction === "up") {

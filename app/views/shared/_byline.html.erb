@@ -1,4 +1,9 @@
-<% if user_signed_in? %>
-    | <a class=<%= votable %> id="upvote" href=<%= "/#{votable.class.name.downcase.pluralize}/#{votable.id}/vote" %>>Upvote</a>
-    | <p class='downvote'>Downvote</p> |
-<% end %>
+<div class= "vote">
+  <% if user_signed_in? %>
+      <div class='points'>
+        | <%= pluralize(votable.score, 'point') %>
+      </div>
+      | <a data-direction= <%= votable.get_vote_direction(current_user) %> <class= "upvote" + <%= votable.get_vote_direction(current_user) %> id="upvote" href=<%= "/#{votable.class.name.downcase.pluralize}/#{votable.id}/vote" %>>Upvote</a>
+      | <a data-direction= <%= votable.get_vote_direction(current_user) %> <class= "downvote" + <%= votable.get_vote_direction(current_user) %> id="upvote" href=<%= "/#{votable.class.name.downcase.pluralize}/#{votable.id}/vote" %>>Downvote</a>
+  <% end %>
+</div>

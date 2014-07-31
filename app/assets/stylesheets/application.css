@@ -126,3 +126,12 @@ input[type=file]{
 .profile-row1{
   margin-bottom: 20px;
 }
+
+.up {
+  color: green;
+}
+
+.neutral {
+  color: red;
+}
+

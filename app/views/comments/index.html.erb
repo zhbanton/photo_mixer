@@ -11,8 +11,7 @@
       | tags: <%= raw @image.categories.map { |cat| link_to cat.name, category_path(cat) }.join(', ') %>
     </p>
     <p class='image-byline'>
-    <%= pluralize(@image.score, 'point') %>
-    <%= render 'shared/byline', direction: current_user.get_vote(@image).present? ? current_user.get_vote(@image).direction : 'neutral', votable: @image %>
+    <%= render 'shared/byline', votable: @image %>
     <% if user_signed_in? %>
       <% if @favorite.present? %>
         <p data-image= <%= @image.id %> data-favorite= <%= @favorite.id %> id="favorite-button"   class="favorite button round">
