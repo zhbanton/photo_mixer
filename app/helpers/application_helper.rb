@@ -1,4 +1,5 @@
 module ApplicationHelper
+
   def vote_link(votable, direction)
     already_voted = votable.voted_by?(current_user, direction)
     new_direction = already_voted ? 'neutral' : direction
