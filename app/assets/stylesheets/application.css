@@ -105,14 +105,18 @@ input[type=file]{
 
 .blurb{
   height:180px;
-  width: 180px;
-  color: #fff;
+  width: 306px;
+  color: #7E807F;
   font-family: 'Montserrat', sans-serif;
+  padding-top: 25px;
 }
 
 .stats{
   height: 180px;
-  width: 180px;
+  width: 306px;
+  color: #7E807F;
+  font-family: 'Montserrat', sans-serif;
+  padding-top: 5px;
 }
 
 .tabs{
