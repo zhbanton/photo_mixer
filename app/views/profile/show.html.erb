@@ -1,24 +1,42 @@
 <%= render 'shared/nav' %>
-<!-- Row 1 -->
+
 <div class='row'>
-  <div class='large-4 columns'>
-      <div><%= image_tag(current_user.avatar.url(:large_avatar)) %></div><br>
-    <ul class="tabs vertical" data-tab>
-      <li class="tab-title active"><a href="#panel1a">My Images</a></li>
-      <li class="tab-title"><a href="#panel2a">My Comments</a></li>
-      <li class="tab-title"><a href="#panel3a">Favorites</a></li>
-      <li class="tab-title"><a href="#panel4a">My Tags</a></li>
-    </ul><br>
-
-    <div class='stats'>
-    </div>
-
+  <div class='small-11 small-centered columns'>
+    <h1 class='header-1'> <%= @user.username %>'s Profile</h1>
   </div>
+</div>
 
-  <div class='large-8 columns'>
-    <div class="tabs-content vertical">
-      <div class="content active" id="panel1a">
-        <ul class="small-block-grid-2 medium-block-grid-3 large-block-grid-4">
+<div class='row'>
+  <div class='profile-row1 small-11 small-centered columns'>
+    <div class='row'>
+      <div class='large-4 columns'>
+        <div class='th'><%= image_tag(current_user.avatar.url(:large_avatar)) %></div>
+      </div>
+      <div class='large-4 columns'>
+        <div class='blurb'></div>
+      </div>
+      <div class='large-4 columns'>
+        <div class='stats'></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class='row'>
+  <div class='small-11 small-centered columns'>
+    <ul class="tabs" data-tab>
+      <li class="tab-title active"><a href="#panel2-1">Images</a></li>
+      <li class="tab-title"><a href="#panel2-2">Comments</a></li>
+      <li class="tab-title"><a href="#panel2-3">Favorites</a></li>
+    </ul>
+  </div>
+</div>
+
+<div class='row'>
+  <div class="tabs-content">
+    <div class="content active" id="panel2-1">
+      <div class='small-11 small-centered columns'>
+        <ul class="view-images small-block-grid-3 medium-block-grid-4 large-block-grid-5">
           <% @uploaded_images.each do |image| %>
             <% if user_signed_in? && image.user == current_user %>
               <li> <%= link_to image_tag(image.image_path.url(:thumb)), edit_image_path(image) %></li>
@@ -28,11 +46,15 @@
           <% end %>
         </ul>
       </div>
-      <div class="content" id="panel2a">
+    </div>
+    <div class="content" id="panel2-2">
+      <div class='small-11 small-centered columns'>
         <%= render 'shared/comments' %>
       </div>
-      <div class="content" id="panel3a">
-        <ul class="small-block-grid-2 medium-block-grid-3 large-block-grid-4">
+    </div>
+    <div class="content" id="panel2-3">
+      <div class='small-11 small-centered columns'>
+        <ul class="view-images small-block-grid-3 medium-block-grid-4 large-block-grid-5">
           <% @favorite_images.each do |image| %>
             <% if user_signed_in? && image.user == current_user %>
               <li> <%= link_to image_tag(image.image_path.url(:thumb)), edit_image_path(image) %></li>
@@ -42,10 +64,7 @@
           <% end %>
         </ul>
       </div>
-      <div class="content" id="panel4a">
-        <p>TAGS TAGS TAGS!.</p>
-      </div>
     </div>
   </div>
- </div>
-
+</div>
+<!--___________________________________________________-->
