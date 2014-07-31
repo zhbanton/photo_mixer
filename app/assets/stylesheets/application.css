@@ -106,6 +106,8 @@ input[type=file]{
 .blurb{
   height:180px;
   width: 180px;
+  color: #fff;
+  font-family: 'Montserrat', sans-serif;
 }
 
 .stats{

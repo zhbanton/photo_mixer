@@ -27,6 +27,9 @@
       <p>Choose an Avatar (optional): </p>
       <%= f.file_field :avatar %></div><br />
 
+      <p class='form-text'>Tell us about yourself (optional):</p>
+      <%=f.text_area :blurb %><br />
+
       <p class='form-text'>Add an interest to view photos you find interesting (optional): </p>
       <%= render 'enter_interests', f: f %>
 

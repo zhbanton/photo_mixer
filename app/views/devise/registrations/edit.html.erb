@@ -9,7 +9,6 @@
       <%= devise_error_messages! %>
       <%= f.label :username, class: 'form-text' %><br />
       <%= f.text_field :username, autofocus: true %>
-
       <%= f.label :email, class: 'form-text' %><br />
       <%= f.email_field :email, autofocus: true %>
 
@@ -18,22 +17,26 @@
       <% end %>
 
       <%= f.label :password, "New password (leave blank if you don't want to change it)", class: 'form-text' %><br />
-        <%= f.password_field :password, autocomplete: "off" %>
-
+      <%= f.password_field :password, autocomplete: "off" %>
       <%= f.label :password_confirmation, "New password confirmation", class: 'form-text' %><br />
       <%= f.password_field :password_confirmation, autocomplete: "off" %>
 
-        <!-- To upload new avatar -->
-        <div class='form-text'>
+      <!-- To upload new avatar -->
+      <div class='form-text'>
         Change your avatar: <br><br>
-        <%= f.file_field :avatar %></div>
+      <%= f.file_field :avatar %>
+      </div>
 
-        <!-- Display current avatar -->
-          <div><%= image_tag(current_user.avatar.url(:large_avatar)) %></div><br>
+      <!-- Display current avatar -->
+      <div><%= image_tag(current_user.avatar.url(:large_avatar)) %></div><br>
+      <!-- Change your blurb -->
+      <p class='form-text'>Edit your blurb:</p>
+      <%=f.text_area :blurb %><br />
+      <!-- Add of remove interests -->
+      <p class='form-text'>Add or remove interests: </p>
+      <%= render 'enter_interests', f: f %><br>
 
-        <p class='form-text'>Add or remove interests: </p>
-        <%= render 'enter_interests', f: f %>
-
+      <!-- Enter password to confirm changes -->
       <p class='header-1'>Please enter your current password to make changes and update your account</p>
       <%= f.password_field :current_password, autocomplete: "off" %>
 
