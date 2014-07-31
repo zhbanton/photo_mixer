@@ -2,7 +2,7 @@
 <!-- Row 1 -->
 <div class='row'>
   <div class='large-4 columns'>
-      <div><%= image_tag(current_user.avatar.url(:large_avatar)) %></div><br>
+      <div><%= image_tag(User.find(params[:id]).avatar.url(:large_avatar)) %></div><br>
     <ul class="tabs vertical" data-tab>
       <li class="tab-title active"><a href="#panel1a">My Images</a></li>
       <li class="tab-title"><a href="#panel2a">My Comments</a></li>
