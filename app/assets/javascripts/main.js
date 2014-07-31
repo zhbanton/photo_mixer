@@ -10,9 +10,6 @@ $(document).ready( function() {
   event.preventDefault();
 });
 
-// $canvas.offset().top
-// $canvas.offset().left
-
 var CanvasApp = {
   init : function(){
     this.clickX = [];
@@ -25,20 +22,17 @@ var CanvasApp = {
 
     var that = this;
     this.canvas.onmousedown = function(event) {
-     var mouseX = event.x - this.offsetLeft;
-     var mouseY = event.y - this.offsetTop;
-     //var mouseX = this.offsetLeft;
-     //var mouseY = this.offsetTop;
+      var mouseX = event.pageX - this.offsetLeft - 275;
+      var mouseY = event.pageY - this.offsetTop - 40;
 
       that.paint = true;
-      that.addClick(mouseX, mouseY);
+      that.addClick(event.pageX - this.offsetLeft - 275, event.pageY - this.offsetTop - 40);
       that.redraw();
     };
 
     this.canvas.onmousemove = function(event){
       if (that.paint) {
-        that.addClick(event.x - this.offsetLeft, event.y - this.offsetTop, true);
-        //that.addClick(this.offsetLeft, this.offsetTop, true);
+        that.addClick(event.pageX - this.offsetLeft - 275, event.pageY - this.offsetTop - 40, true);
         that.redraw();
       }
     };
@@ -64,17 +58,12 @@ var CanvasApp = {
     var imgHeight = $('#imageShow').height();
     console.log(imgWidth);
 
-
-
     $('#myCanvas').attr({
-      //width: imgWidth,
-      //height: imgHeight,
+      width: imgWidth,
+      height: imgHeight,
       style: 'background: url(' + gon.image_path + ") no-repeat;"
     });
     $('#imageShow').hide();
-
-    //context.drawImage($('#imageShow'),0,0,imgWidth,imgHeight);
-    //.drawImage($('#imageShow'), 0, 0)
   },
 
   addClick : function(x, y, dragging){
@@ -102,6 +91,7 @@ var CanvasApp = {
       }
       context.lineTo(this.clickX[i], this.clickY[i]);
       context.closePath();
+
       context.stroke();
     }
   }
