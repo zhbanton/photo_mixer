@@ -10,7 +10,7 @@ class User < ActiveRecord::Base
   has_many :favorites, dependent: :destroy
   has_many :interests, dependent: :destroy
   has_many :tags, through: :interests
-  accepts_nested_attributes_for :interests, allow_destroy: true
+  accepts_nested_attributes_for :interests, reject_if: proc { |attributes| attributes['tag_id'].blank? }, allow_destroy: true
   accepts_nested_attributes_for :tags
 
   validates :username, presence: true
