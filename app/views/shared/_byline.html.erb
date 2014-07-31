@@ -1,4 +1,4 @@
 <% if user_signed_in? %>
-    | <%= vote_link(votable, 'up') %>
-    | <%= vote_link(votable, 'down') %> |
+    | <a class=<%= votable %> id="upvote" href=<%= "/#{votable.class.name.downcase.pluralize}/#{votable.id}/vote" %>>Upvote</a>
+    | <p class='downvote'>Downvote</p> |
 <% end %>

@@ -5,5 +5,6 @@ $(document).ready( function() {
     $(this).parent().remove();
     event.preventDefault();
   });
+  $('#upvote').click(vote);
 
 });

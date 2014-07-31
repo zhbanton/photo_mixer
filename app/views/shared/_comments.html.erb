@@ -7,7 +7,7 @@
         by <%= link_to comment.user.username, profile_path(comment.user.id) %>
         <%= time_ago_in_words(comment.created_at) %> ago
         | <%= pluralize(comment.score, 'point') %>
-        <%= render 'shared/byline', votable: comment %>
+        <%= render 'shared/byline', direction: current_user.get_vote(comment).present? ? current_user.get_vote(comment).direction : 'neutral', votable: comment %>
       </p>
     </div>
   <% end %>
