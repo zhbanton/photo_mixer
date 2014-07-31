@@ -9,7 +9,5 @@ module ApplicationHelper
     already_voted ? content_tag('b', link) : link
   end
 
-  ActsAsTaggableOn.force_lowercase = true
-
 end
 

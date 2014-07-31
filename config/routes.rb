@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
 
-  get 'tags/:tag', to: 'images#index', as: :tag
   get '/profile/:id', to: "profile#show", as: :profile
 
   devise_for :users, controllers: {registrations: 'registrations'}
@@ -14,6 +13,8 @@ Rails.application.routes.draw do
   end
 
   resources :favorites, only: [:create, :destroy]
+
+  resources :categories, only: [:show]
 
   root to: 'home#index'
 end

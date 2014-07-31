@@ -5,6 +5,6 @@
     <% end %>
   </ul>
     <div class="add-line controls">
-      <%= link_to_add_association 'add interest', f, :interests, 'data-association-insertion-node' => "#user-categories ul", 'data-association-insertion-method' => "append", :wrap_object => Proc.new { |interest| interest.build_tag; interest } %>
+      <%= link_to_add_association 'add interest', f, :interests, 'data-association-insertion-node' => "#user-categories ul", 'data-association-insertion-method' => "append", :wrap_object => Proc.new { |interest| interest.build_category; interest } %>
     </div>
 </fieldset>

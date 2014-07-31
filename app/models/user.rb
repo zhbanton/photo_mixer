@@ -9,9 +9,9 @@ class User < ActiveRecord::Base
   has_many :comments, dependent: :destroy
   has_many :favorites, dependent: :destroy
   has_many :interests, dependent: :destroy
-  has_many :tags, through: :interests
-  accepts_nested_attributes_for :interests, reject_if: proc { |attributes| attributes['tag_attributes']['name'].blank? }, allow_destroy: true
-  accepts_nested_attributes_for :tags
+  has_many :categories, through: :interests
+  accepts_nested_attributes_for :interests, reject_if: proc { |attributes| attributes['category_attributes']['name'].blank? }, allow_destroy: true
+  accepts_nested_attributes_for :categories
 
   validates :username, presence: true
   validates :username, uniqueness: true, case_sensitive: false
@@ -40,6 +40,10 @@ class User < ActiveRecord::Base
 
   def get_favorite(image)
     favorites.select { |favorite| favorite.image_id == image.id }.first
+  end
+
+  def images_of_interest
+    categories.map { |cat| cat.images }
   end
 
 end
