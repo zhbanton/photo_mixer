@@ -1,14 +1,17 @@
 $(document).ready( function() {
-  $('#new-comment').submit(createComment);
-  $('#favorite-button').click(favorite);
-  $('.close').click(function(event){
-    $(this).parent().remove();
-  event.preventDefault();
+    $('#new-comment').submit(createComment);
+    $('#favorite-button').click(favorite);
+    $('.close').click(function(event){
+      $(this).parent().remove();
+      event.preventDefault();
+    });
+    if(document.getElementById('myCanvas')){
+      $('#submitBtn').click(CanvasApp.init());
+    }
+    $('body').on('click', '.upvote', vote);
+    $('body').on('click', '.downvote', vote);
 
-  //CavasApp.init();
-  });
-  $('.vote').on('click', '.upvote', vote);
-  $('.vote').on('click', '.downvote', vote);
+
 });
 
 var CanvasApp = {
@@ -53,7 +56,7 @@ var CanvasApp = {
     });
   },
 
-  loadImage : function(){
+  loadImage: function(){
     var context = this.canvas.getContext('2d');
     var imgWidth = $('#imageShow').width();
     var imgHeight = $('#imageShow').height();
