@@ -5,5 +5,7 @@
       </span>
       | <a data-direction= <%= votable.get_vote_direction(current_user) %> class= "upvote <%= votable.get_vote_direction(current_user) == 'down' ? 'neutral' : votable.get_vote_direction(current_user) %>" href=<%= "/#{votable.class.name.downcase.pluralize}/#{votable.id}/vote" %>>Upvote</a>
       | <a data-direction= <%= votable.get_vote_direction(current_user) %> class= "downvote <%= votable.get_vote_direction(current_user) == 'up' ? 'neutral' : votable.get_vote_direction(current_user) %>" href=<%= "/#{votable.class.name.downcase.pluralize}/#{votable.id}/vote" %>>Downvote</a>
+  <% else %>
+      <p class='gray'>Please sign in to vote or comment!</p>
   <% end %>
 </span>
