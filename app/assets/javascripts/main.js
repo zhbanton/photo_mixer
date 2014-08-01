@@ -57,7 +57,6 @@ var CanvasApp = {
     var context = this.canvas.getContext('2d');
     var imgWidth = $('#imageShow').width();
     var imgHeight = $('#imageShow').height();
-    console.log(imgWidth);
 
     $('#myCanvas').attr({
       width: imgWidth,
@@ -97,5 +96,3 @@ var CanvasApp = {
     }
   }
 };
-
->>>>>>> 38d06f6d818e01db061e5b747f130fb594d6bb07

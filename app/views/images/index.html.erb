@@ -1,7 +1,12 @@
 <%= render 'shared/nav' %>
 <div class='row'>
   <div class='small-11 small-centered columns'>
-    <h1 class='header-1 text-center'>Gallery</h1>
+    <%= search_form_for @q do |f| %>
+      <%= f.label :caption_cont %>
+      <%= f.search_field :caption_cont, :style => "width:147px;" %>
+      <%= f.submit %>
+    <% end %>
+    <h1 class='header-1 text-center'>Search Results</h1>
   </div>
 </div>
 <div class='row'>
