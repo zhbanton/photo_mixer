@@ -16,11 +16,6 @@ class Image < ActiveRecord::Base
     Category.find_by(name: name).images
   end
 
-  def self.tag_counts
-    Tag.select("categories.*, count(tags.category_id) as count")
-      joins(:tags).group("tags.category_id")
-  end
-
   def tag_list
     categories.map(&:name).join(', ')
   end
