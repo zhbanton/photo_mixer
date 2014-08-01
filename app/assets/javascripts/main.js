@@ -5,9 +5,11 @@ $(document).ready( function() {
     $(this).parent().remove();
   });
 
-  CanvasApp.init();
+
 
   event.preventDefault();
+  //CanvasApp.init();
+
 });
 
 var CanvasApp = {
