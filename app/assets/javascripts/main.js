@@ -4,6 +4,10 @@ $(document).ready( function() {
   $('.close').click(function(event){
     $(this).parent().remove();
   });
+<<<<<<< HEAD
+});
+
+=======
 
   CanvasApp.init();
 
@@ -97,3 +101,4 @@ var CanvasApp = {
   }
 };
 
+>>>>>>> 38d06f6d818e01db061e5b747f130fb594d6bb07
