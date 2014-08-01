@@ -4,7 +4,8 @@ class ImagesController < ApplicationController
   before_action :get_image_and_authenticate_current_user, only: [:edit, :update, :destroy]
 
   def index
-    @images = Image.all
+      @q = Image.search(params[:q])
+      @images = @q.result(distinct: true)
   end
 
   def new
