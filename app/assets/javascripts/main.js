@@ -5,10 +5,10 @@ $(document).ready( function() {
     $(this).parent().remove();
   event.preventDefault();
   });
-  $('body').on('click', '.upvote', vote);
-  $('body').on('click', '.downvote', vote);
-
+  $('.vote').on('click', '.upvote', vote);
+  $('.vote').on('click', '.downvote', vote);
 });
+
 var CanvasApp = {
   init : function(){
     this.clickX = [];
