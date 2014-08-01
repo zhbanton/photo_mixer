@@ -10,7 +10,7 @@
   <div class='profile-row1 small-11 small-centered columns'>
     <div class='row'>
       <div class='large-4 columns' id='profile-pic'>
-        <div class='th'><%= image_tag(current_user.avatar.url(:large_avatar)) %></div>
+        <div class='th'><%= image_tag(@user.avatar.url(:large_avatar)) %></div>
       </div>
       <div class='large-4 columns'>
         <div class='stats'>
