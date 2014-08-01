@@ -89,6 +89,11 @@ GEM
     foundation-rails (5.3.0.1)
       railties (>= 3.1.0)
       sass (>= 3.2.0)
+    gon (5.1.2)
+      actionpack (>= 2.3.0)
+      json
+      multi_json
+      request_store (>= 1.0.5)
     handlebars_assets (0.17.1)
       execjs (>= 1.2.9)
       multi_json
@@ -146,6 +151,7 @@ GEM
     rake (10.3.2)
     rdoc (4.1.1)
       json (~> 1.4)
+    request_store (1.0.8)
     rmagick (2.13.2)
     sass (3.2.19)
     sass-rails (4.0.3)
@@ -193,6 +199,7 @@ DEPENDENCIES
   dotenv-rails
   fog
   foundation-rails
+  gon
   handlebars_assets
   jbuilder (~> 2.0)
   jquery-rails
