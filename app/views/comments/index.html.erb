@@ -2,7 +2,15 @@
 <div class='row'>
   <div class='small-11 small-centered columns'>
     <h3 class= 'header-1'> <%= @image.caption %> </h3>
-      <%= image_tag(@image.image_path.url) %>
+    <button id="submitBtn">Doodle!</button>
+    <br>
+
+    <div id="imageShow">
+    <%= image_tag(@image.image_path.url) %>
+    </div>
+
+    <canvas id='myCanvas'></canvas>
+
     <br>
     <br>
     <p class='form-text'>
