@@ -1,47 +1,48 @@
-<nav class="top-bar" data-topbar>
-  <ul class="title-area">
-    <li class="name">
-      <h1 class="photo-mixer"><%= link_to'Photo-Mixer', root_path %></h1>
-    </li>
-    <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
-  </ul>
+<div class='sticky'>
+  <nav class="top-bar" data-topbar>
+    <ul class="title-area">
+      <li class="name">
+        <h1 class="photo-mixer"><%= link_to'Photo-Mixer', root_path %></h1>
+      </li>
+      <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
+    </ul>
 
-  <% if user_signed_in? %>
-    <section class="top-bar-section">
-      <!-- Right Nav Section -->
-      <ul class="right">
-        <li>
-          <div><%= image_tag(current_user.avatar.url(:small_avatar)) %></div>
-        </li>
-        <li class="active" id="username"><%= link_to current_user.username, profile_path(current_user.id) %></li>
-        <li class="has-dropdown">
-          <a href="#">Menu</a>
-          <ul class="dropdown">
-            <li><%= link_to 'Edit Account', edit_user_registration_path %></li>
-            <li><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></li>
-            <li><%= link_to 'Upload Image', new_image_path %></li>
-          </ul>
-        </li>
-      </ul>
-      <!-- Left Nav Section -->
-      <ul class="left">
-        <li></li>
-      </ul>
-    </section>
-
-    <% else %>
+    <% if user_signed_in? %>
       <section class="top-bar-section">
         <!-- Right Nav Section -->
         <ul class="right">
-          <li class="active"><%= link_to 'Sign In or Sign Up', new_user_session_path %></li>
+          <li>
+            <div><%= image_tag(current_user.avatar.url(:small_avatar)) %></div>
+          </li>
+          <li class="active" id="username"><%= link_to current_user.username, profile_path(current_user.id) %></li>
+          <li class="has-dropdown">
+            <a href="#">Menu</a>
+            <ul class="dropdown">
+              <li><%= link_to 'Edit Account', edit_user_registration_path %></li>
+              <li><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></li>
+              <li><%= link_to 'Upload Image', new_image_path %></li>
+            </ul>
+          </li>
         </ul>
         <!-- Left Nav Section -->
         <ul class="left">
+          <li></li>
         </ul>
       </section>
-  <% end %>
-</nav>
 
+      <% else %>
+        <section class="top-bar-section">
+          <!-- Right Nav Section -->
+          <ul class="right">
+            <li class="active"><%= link_to 'Sign In or Sign Up', new_user_session_path %></li>
+          </ul>
+          <!-- Left Nav Section -->
+          <ul class="left">
+          </ul>
+        </section>
+    <% end %>
+  </nav>
+</div>
 
 
 

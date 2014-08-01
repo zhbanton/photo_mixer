@@ -126,3 +126,8 @@ input[type=file]{
 .profile-row1{
   margin-bottom: 20px;
 }
+
+#profile-pic{
+  width: 225px;
+}
+
