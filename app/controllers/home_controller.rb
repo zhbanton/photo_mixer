@@ -4,7 +4,7 @@ class HomeController < ApplicationController
     if params[:filter]
       @images = Image.filterize(params[:filter])
     else
-      @images = Image.filterize('today')
+      @images = Image.filterize('all_time')
     end
   end
 

@@ -126,3 +126,15 @@ input[type=file]{
 .profile-row1{
   margin-bottom: 20px;
 }
+
+#profile-pic{
+  width: 225px;
+}
+
+#tag_cloud {
+  width: 400px;
+  line-height: 1.6em;
+  .s { font-size: 0.8em; }
+  .m { font-size: 1.2em; }
+  .l { font-size: 1.8em; }
+}
