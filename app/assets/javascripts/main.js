@@ -4,6 +4,8 @@ $(document).ready( function() {
   $('.close').click(function(event){
     $(this).parent().remove();
   event.preventDefault();
+
+  //CavasApp.init();
   });
   $('body').on('click', '.upvote', vote);
   $('body').on('click', '.downvote', vote);
@@ -55,7 +57,6 @@ var CanvasApp = {
     var context = this.canvas.getContext('2d');
     var imgWidth = $('#imageShow').width();
     var imgHeight = $('#imageShow').height();
-    console.log(imgWidth);
 
     $('#myCanvas').attr({
       width: imgWidth,
@@ -95,5 +96,3 @@ var CanvasApp = {
     }
   }
 };
-
-

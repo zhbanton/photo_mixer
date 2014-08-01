@@ -1,6 +1,11 @@
 <%= render 'shared/nav' %>
 <div class='row'>
   <div class='small-11 small-centered columns'>
+    <%= search_form_for @q do |f| %>
+      <%= f.label :caption_cont %>
+      <%= f.search_field :caption_cont, :style => "width:147px;" %>
+      <%= f.submit %>
+    <% end %>
     <h1 class='header-1 text-center'>Public Gallery</h1>
     <a data-dropdown="drop1" class="button dropdown">Filter By</a><br>
     <ul id="drop1" data-dropdown-content class="f-dropdown">
