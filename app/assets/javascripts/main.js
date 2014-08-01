@@ -5,6 +5,7 @@ $(document).ready( function() {
     $(this).parent().remove();
     event.preventDefault();
   });
-  $('body').on('click', '#upvote', vote);
+  $('body').on('click', '.upvote', vote);
+  $('body').on('click', '.downvote', vote);
 
 });

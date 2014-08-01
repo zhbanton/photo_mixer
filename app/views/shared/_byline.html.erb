@@ -3,7 +3,7 @@
       <span class='points'>
         | <%= pluralize(votable.score, 'point') %>
       </span>
-      | <a data-direction= <%= votable.get_vote_direction(current_user) %> class= <%= votable.get_vote_direction(current_user)%> id="upvote" href=<%= "/#{votable.class.name.downcase.pluralize}/#{votable.id}/vote" %>>Upvote</a>
-      | <a data-direction= <%= votable.get_vote_direction(current_user) %> class= <%= votable.get_vote_direction(current_user)%> id="downvote" href=<%= "/#{votable.class.name.downcase.pluralize}/#{votable.id}/vote" %>>Downvote</a>
+      | <a data-direction= <%= votable.get_vote_direction(current_user) %> class= "upvote <%= votable.get_vote_direction(current_user) == 'down' ? 'neutral' : votable.get_vote_direction(current_user) %>" href=<%= "/#{votable.class.name.downcase.pluralize}/#{votable.id}/vote" %>>Upvote</a>
+      | <a data-direction= <%= votable.get_vote_direction(current_user) %> class= "downvote <%= votable.get_vote_direction(current_user) == 'up' ? 'neutral' : votable.get_vote_direction(current_user) %>" href=<%= "/#{votable.class.name.downcase.pluralize}/#{votable.id}/vote" %>>Downvote</a>
   <% end %>
 </span>
