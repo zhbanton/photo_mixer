@@ -44,7 +44,9 @@ class User < ActiveRecord::Base
   end
 
   def images_of_interest
-    categories.map { |cat| cat.images }
+    images = {}
+    categories.each { |cat| images[cat.name] = cat.images }
+    images
   end
 
 end
