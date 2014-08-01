@@ -4,11 +4,6 @@ $(document).ready( function() {
   $('.close').click(function(event){
     $(this).parent().remove();
   });
-<<<<<<< HEAD
-});
-
-=======
-
 
 
   event.preventDefault();
