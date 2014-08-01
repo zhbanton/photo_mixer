@@ -2,18 +2,10 @@ class CommentSerializer < ActiveModel::Serializer
 
   include ActionView::Helpers::DateHelper
 
-  attributes :id, :image_id, :user_email, :body, :score, :created_at_int, :time_ago, :upvote_link, :downvote_link, :profile_link, :username, :avatar_url
+  attributes :id, :image_id, :user_email, :body, :score, :created_at_int, :time_ago, :profile_link, :username, :avatar_url
 
   def user_email
     "#{object.user.email}"
-  end
-
-  def upvote_link
-    "/comments/#{object.id}/vote?direction=up"
-  end
-
-  def downvote_link
-    "/comments/#{object.id}/vote?direction=down"
   end
 
   def time_ago
