@@ -127,11 +127,14 @@ input[type=file]{
   margin-bottom: 20px;
 }
 
-.up {
+#upvote.up {
   color: green;
 }
 
-.neutral {
-  color: red;
+#downvote.down {
+  color: green;
 }
+
+
+
 

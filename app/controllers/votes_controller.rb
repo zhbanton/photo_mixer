@@ -3,6 +3,10 @@ class VotesController < ApplicationController
 
   respond_to :html, :json
 
+  def default_serializer_options
+    {root: false}
+  end
+
   def update
     vote = Vote.find_or_initialize_by(user: current_user, votable: votable)
     vote.update!(vote_params)

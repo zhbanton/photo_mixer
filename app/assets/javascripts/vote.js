@@ -13,16 +13,6 @@ var vote = function(event){
 
 };
 
-var updateCommentVote = function(event){
-  $.ajax({
-    url: '/comments/:comment_id/vote',
-    type: 'default GET (Other values: POST)',
-    dataType: 'default: Intelligent Guess (Other values: xml, json, script, or html)',
-    data: {param1: 'value1'},
-
-  });
-};
-
 var flipVote = function(direction) {
  if (direction === "neutral" || direction === "down") {
   return "up";

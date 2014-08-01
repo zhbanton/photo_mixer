@@ -1,9 +1,9 @@
-<div class= "vote">
+<span class= "vote">
   <% if user_signed_in? %>
-      <div class='points'>
+      <span class='points'>
         | <%= pluralize(votable.score, 'point') %>
-      </div>
-      | <a data-direction= <%= votable.get_vote_direction(current_user) %> <class= "upvote" + <%= votable.get_vote_direction(current_user) %> id="upvote" href=<%= "/#{votable.class.name.downcase.pluralize}/#{votable.id}/vote" %>>Upvote</a>
-      | <a data-direction= <%= votable.get_vote_direction(current_user) %> <class= "downvote" + <%= votable.get_vote_direction(current_user) %> id="upvote" href=<%= "/#{votable.class.name.downcase.pluralize}/#{votable.id}/vote" %>>Downvote</a>
+      </span>
+      | <a data-direction= <%= votable.get_vote_direction(current_user) %> class= <%= votable.get_vote_direction(current_user)%> id="upvote" href=<%= "/#{votable.class.name.downcase.pluralize}/#{votable.id}/vote" %>>Upvote</a>
+      | <a data-direction= <%= votable.get_vote_direction(current_user) %> class= <%= votable.get_vote_direction(current_user)%> id="downvote" href=<%= "/#{votable.class.name.downcase.pluralize}/#{votable.id}/vote" %>>Downvote</a>
   <% end %>
-</div>
+</span>
