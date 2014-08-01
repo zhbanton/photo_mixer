@@ -17,8 +17,8 @@ class Image < ActiveRecord::Base
   end
 
   def self.tag_counts
-    Category.select("categories.*, count(tags.category_id) as count")
-      joins(:taggings).group("tags.category_id")
+    Tag.select("categories.*, count(tags.category_id) as count")
+      joins(:tags).group("tags.category_id")
   end
 
   def tag_list
