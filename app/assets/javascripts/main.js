@@ -5,10 +5,12 @@ $(document).ready( function() {
     $(this).parent().remove();
   event.preventDefault();
 
-  CanvasApp.init();
+  //CavasApp.init();
   });
+  $('body').on('click', '.upvote', vote);
+  $('body').on('click', '.downvote', vote);
 
-
+});
 var CanvasApp = {
   init : function(){
     this.clickX = [];
@@ -55,6 +57,7 @@ var CanvasApp = {
     var context = this.canvas.getContext('2d');
     var imgWidth = $('#imageShow').width();
     var imgHeight = $('#imageShow').height();
+    console.log(imgWidth);
 
     $('#myCanvas').attr({
       width: imgWidth,
