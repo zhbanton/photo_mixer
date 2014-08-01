@@ -6,10 +6,7 @@ $(document).ready( function() {
   event.preventDefault();
   });
 
-  CanvasApp.init();
-
 });
-
 var CanvasApp = {
   init : function(){
     this.clickX = [];
