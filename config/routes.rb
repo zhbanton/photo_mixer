@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
   get '/profile/:id', to: "profile#show", as: :profile
+  get '/tag_cloud', to: "categories#index", as: :categories
 
   devise_for :users, controllers: {registrations: 'registrations'}
 
@@ -14,7 +15,7 @@ Rails.application.routes.draw do
 
   resources :favorites, only: [:create, :destroy]
 
-  resources :categories, only: [:show]
+  resources :categories, only: [:show, :index]
 
   root to: 'home#index'
 end

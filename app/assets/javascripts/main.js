@@ -3,14 +3,10 @@ $(document).ready( function() {
   $('#favorite-button').click(favorite);
   $('.close').click(function(event){
     $(this).parent().remove();
+  event.preventDefault();
   });
 
-
-  event.preventDefault();
-  //CanvasApp.init();
-
 });
-
 var CanvasApp = {
   init : function(){
     this.clickX = [];
@@ -98,4 +94,4 @@ var CanvasApp = {
   }
 };
 
->>>>>>> 38d06f6d818e01db061e5b747f130fb594d6bb07
+
