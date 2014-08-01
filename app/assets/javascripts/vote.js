@@ -8,6 +8,7 @@ var vote = function(event){
   .done(function(data) {
     $('#upvote').data('direction', data.direction);
     $('#upvote').removeClass().addClass(data.direction);
+    $('#upvote').first().siblings().first().text(data.score);
   });
   event.preventDefault();
 
