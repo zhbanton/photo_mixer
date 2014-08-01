@@ -158,3 +158,12 @@ input[type=file]{
   font-size: 60px;
 }
 
+.upvote.up {
+  color: green;
+}
+
+.downvote.down {
+  color: green;
+}
+
+

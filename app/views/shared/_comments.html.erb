@@ -6,7 +6,6 @@
         <%= image_tag(comment.user.avatar.url(:small_avatar)) %>
         by <%= link_to comment.user.username, profile_path(comment.user.id) %>
         <%= time_ago_in_words(comment.created_at) %> ago
-        | <%= pluralize(comment.score, 'point') %>
         <%= render 'shared/byline', votable: comment %>
       </p>
     </div>

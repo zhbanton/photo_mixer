@@ -1,4 +1,9 @@
-<% if user_signed_in? %>
-    | <%= vote_link(votable, 'up') %>
-    | <%= vote_link(votable, 'down') %> |
-<% end %>
+<span class= "vote">
+  <% if user_signed_in? %>
+      <span class='points'>
+        | <%= pluralize(votable.score, 'point') %>
+      </span>
+      | <a data-direction= <%= votable.get_vote_direction(current_user) %> class= "upvote <%= votable.get_vote_direction(current_user) == 'down' ? 'neutral' : votable.get_vote_direction(current_user) %>" href=<%= "/#{votable.class.name.downcase.pluralize}/#{votable.id}/vote" %>>Upvote</a>
+      | <a data-direction= <%= votable.get_vote_direction(current_user) %> class= "downvote <%= votable.get_vote_direction(current_user) == 'up' ? 'neutral' : votable.get_vote_direction(current_user) %>" href=<%= "/#{votable.class.name.downcase.pluralize}/#{votable.id}/vote" %>>Downvote</a>
+  <% end %>
+</span>

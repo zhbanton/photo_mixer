@@ -19,7 +19,6 @@
       | tags: <%= raw @image.categories.map { |cat| link_to cat.name, category_path(cat) }.join(', ') %>
     </p>
     <p class='image-byline'>
-    <%= pluralize(@image.score, 'point') %>
     <%= render 'shared/byline', votable: @image %>
     <% if user_signed_in? %>
       <% if @favorite.present? %>
@@ -33,6 +32,10 @@
       <% end %>
     <% end %>
     </p>
+
+    <% if user_signed_in? && @image.user_id == current_user.id %>
+      <%= link_to 'edit image', edit_image_path(@image) %>
+    <% end %>
 
 
     <h3 class='header-1'>Comments</h3>

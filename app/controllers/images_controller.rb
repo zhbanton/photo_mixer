@@ -29,10 +29,10 @@ class ImagesController < ApplicationController
 
   def update
     if @image.update(image_params)
-      redirect_to edit_image_path(@image), notice: 'image updated'
+      redirect_to image_comments_path(@image), notice: 'image updated'
     else
       flash.now[:alert] = @image.errors.full_messages.join(', ')
-      render :new
+      render :edit
     end
   end
 

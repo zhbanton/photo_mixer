@@ -16,11 +16,7 @@
   <div class='small-11 small-centered columns'>
     <ul class='view-images small-block-grid-3 medium-block-grid-4 large-block-grid-5'>
       <% @images.each do |image| %>
-        <% if user_signed_in? && image.user == current_user %>
-          <li> <%= link_to image_tag(image.image_path.url(:thumb)), edit_image_path(image) %></li>
-        <% else %>
-          <li><%= link_to image_tag(image.image_path.url(:thumb)), image_comments_path(image) %></li>
-        <% end %>
+        <li><%= link_to image_tag(image.image_path.url(:thumb)), image_comments_path(image) %></li>
       <% end %>
     </ul>
   </div>
