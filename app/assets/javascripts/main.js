@@ -3,13 +3,11 @@ $(document).ready( function() {
   $('#favorite-button').click(favorite);
   $('.close').click(function(event){
     $(this).parent().remove();
+  event.preventDefault();
+
+  CanvasApp.init();
   });
 
-
-  event.preventDefault();
-  //CanvasApp.init();
-
-});
 
 var CanvasApp = {
   init : function(){
@@ -97,4 +95,3 @@ var CanvasApp = {
     }
   }
 };
-
