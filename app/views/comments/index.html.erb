@@ -25,6 +25,10 @@
     <% end %>
     </p>
 
+    <% if user_signed_in? && @image.user_id == current_user.id %>
+      <%= link_to 'edit image', edit_image_path(@image) %>
+    <% end %>
+
 
     <h3 class='header-1'>Comments</h3>
 
