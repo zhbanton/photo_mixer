@@ -10,14 +10,15 @@ var vote = function(event){
     $(this).removeClass('up down neutral').addClass(data.direction);
     $(this).siblings().last().data('direction', 'neutral');
     $(this).siblings().last().removeClass('up down neutral').addClass('neutral');
-    $(this).first().siblings().first().text(data.score);
+    $(this).first().siblings().first().text(data.score_text);
+    $(this).parent().parent().parent().attr('data-score', data.score);
   }.bind(this));
 
   event.preventDefault();
 
 };
 
-var flipVote = function(direction) {
+var flipVote = function() {
   if ($(this).data('direction') === "up" || $(this).data('direction') === "down") {
     return "neutral";
   }
@@ -30,3 +31,4 @@ var flipVote = function(direction) {
     }
   }
 };
+

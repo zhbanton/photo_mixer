@@ -8,9 +8,9 @@ $(document).ready( function() {
     if(document.getElementById('myCanvas')){
       $('#submitBtn').click(CanvasApp.init());
     }
-
     $('body').on('click', '.upvote', vote);
     $('body').on('click', '.downvote', vote);
+
 
 });
 

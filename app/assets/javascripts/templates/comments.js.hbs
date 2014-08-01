@@ -6,10 +6,12 @@
     <img src={{avatar_url}}>
     by <a href= {{profile_link}}>{{username}}</a>
     {{time_ago}} ago
-    | {{score}} points
-    <b>
-      | <a data-method="patch" href={{upvote_link}} rel="nofollow">Upvote</a>
-    </b>
-    | <a data-method="patch" href={{downvote_link}} rel="nofollow">Downvote</a> |
+    <span class='vote'>
+      <span class='points'>
+        | {{score}} points
+      </span>
+      | <a data-direction="neutral" href="/comments/{{id}}/vote">Upvote</a>
+      | <a data-direction="neutral" href="/comments/{{id}}/vote">Downvote</a>
+    </span>
   </p>
 </div>
