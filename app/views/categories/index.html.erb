@@ -1,0 +1,10 @@
+<%= render 'shared/nav' %>
+<div class='row'>
+  <div class='small-11 small-centered columns'>
+    <div class='text-center'id="tag_cloud">
+      <% tag_cloud Category.all, %w[xs s m l xl] do |tag, css_class| %>
+        <%= link_to tag.name, category_path(tag.id), class: css_class %>
+      <% end %>
+    </div>
+  </div>
+</div>

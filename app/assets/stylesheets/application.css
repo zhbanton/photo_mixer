@@ -131,3 +131,30 @@ input[type=file]{
   width: 225px;
 }
 
+#tag_cloud {
+  margin: 50px 0 0 0;
+  width: 772px;
+  height: 500px;
+  line-height: 1.6em;
+}
+
+.xs{
+  font-size: 8px;
+}
+
+.s{
+  font-size: 15px;
+}
+
+.m{
+  font-size: 28px;
+}
+
+.l{
+  font-size: 45px;
+}
+
+.xl{
+  font-size: 60px;
+}
+
