@@ -1,4 +1,4 @@
-Photo Mixer
+<h3>Photo Mixer</h3>
 =============
 
 Photo Mixer is a social image sharing site for people who crave a little more interactivity with their content.
@@ -43,4 +43,4 @@ Installed gems include:
 * gon
 
 Thank you!
-Developed by: [Zack Banton](https://github.chttps://github.com/emmagard), [Ben White](https://github.com/whtouche)
+Developed by: [Zack Banton](https://github.com/zhbanton), [Emma Gardner](https://github.com/emmagard), [Ben White](https://github.com/whtouche)
