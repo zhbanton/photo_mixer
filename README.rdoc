@@ -1,4 +1,4 @@
-<h3>Photo Mixer</h3>
+Photo Mixer
 =============
 
 Photo Mixer is a social image sharing site for people who crave a little more interactivity with their content.
