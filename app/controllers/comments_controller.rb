@@ -30,7 +30,7 @@ class CommentsController < ApplicationController
   def get_image_and_comments
     @image = Image.find(params[:image_id])
     gon.image_path = @image.image_path.url
-    @comments = @image.comments.sort_by { |comment| [comment.score, comment.created_at] }.reverse
+    @comments = @image.comments.includes(:user).sort_by { |comment| [comment.score, comment.created_at] }.reverse
   end
 
 end

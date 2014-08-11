@@ -31,6 +31,7 @@ gem 'foundation-rails'
 group :development, :test do
   gem 'dotenv-rails'
   gem 'pry-rails'
+  gem 'bullet'
 end
 
 group :production do
