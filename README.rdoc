@@ -1,28 +1,46 @@
-== README
+Photo Mixer
+=============
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Photo Mixer is a social image sharing site for people who crave a little more interactivity with their content.
 
-Things you may want to cover:
+http://photo-mixer.herokuapp.com/
 
-* Ruby version
+Features
+-------
+* Guests can images uploaded to the public gallery, view comments on images, search by image caption, filter the front page by a number of options, and temporarily draw on images, all without logging in.
+* Guest users can also view profile pages of other users
+* Logged in users can up or downvote images and comments, create their own comments on images, add images to their favorites, and upload images to the public gallery.
+* Logged in users can create an avatar for their profile, but a default is provided if they choose not to upload one. They can also change their avatar at any time from their profile page.
+* Uploaded images can be given a caption, which is searchable, as well as any number of tags. Relative popularity of each tag is displayed in the tag cloud.
 
-* System dependencies
+Project Description
+-------
+This project was created to meet requirements for Project 2 in General Assembly's Web Development Immersive Program (July 2014).
 
-* Configuration
+Intended to test our ability to work in groups, this project utilizes Ruby, Rails, Javascript, JSON, AJAX, and was styled using Foundation.
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+This project was brainstormed, scoped and developed in one week. We have a list of features to include at subsequent deployment levels if given more time.
 
 
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+Installation
+-------
+
+This app requires API keys from Amazon S3:
+* AWS https://console.aws.amazon.com
+
+Installed gems include:
+* devise
+* dotenv-rails
+* active-model-serializers
+* foundation-rails
+* handlebars_assets
+* carrierwave
+* fog
+* rmagick
+* cocoon
+* aws-sdk
+* ransack
+* gon
+
+Thank you!
+Developed by: [Zack Banton](https://github.chttps://github.com/emmagard), [Ben White](https://github.com/whtouche)
