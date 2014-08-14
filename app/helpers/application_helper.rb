@@ -9,11 +9,11 @@ module ApplicationHelper
     already_voted ? content_tag('b', link) : link
   end
 
-  def tag_cloud(tags, classes)
-    max = tags.sort_by(&:count).last
-    tags.each do |tag|
-      index = tag.count.to_f / max.count * (classes.size - 1)
-      yield(tag, classes[index.round])
+  def tag_cloud(categories, classes)
+    max = categories.sort_by{ |category| category.tags.count }.last
+    categories.each do |category|
+      index = category.tags.count.to_f / max.tags.count * (classes.size - 1)
+      yield(category, classes[index.round])
     end
   end
 

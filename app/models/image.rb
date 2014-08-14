@@ -12,9 +12,9 @@ class Image < ActiveRecord::Base
   has_many :tags, dependent: :destroy
   has_many :categories, through: :tags
 
-  def self.tagged_with(name)
-    Category.find_by(name: name).images
-  end
+  #def self.tagged_with(name)
+  #  Category.find_by(name: name).images
+  #end
 
   def tag_list
     categories.map(&:name).join(', ')
